@@ -1,322 +1,491 @@
+```html
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Charming Beauty Care | Your Experience</title>
+<title>Charming Beauty Care | Share Your Experience</title>
 
 <style>
 *{
-box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 :root{
---wine:#64152f;
---wine-dark:#451022;
---gold:#c9a45c;
---gold-light:#ead7a8;
---cream:#fffaf5;
---text:#3b3033;
+  --wine:#5b102c;
+  --wine-dark:#350719;
+  --gold:#d4b06a;
+  --gold-light:#f3dfad;
+  --white:#fffaf7;
+  --text:#40373a;
 }
 
 body{
-margin:0;
-font-family:Arial,"Noto Sans",sans-serif;
-background:
-radial-gradient(circle at top,#fff8ef 0%,#f8e9e8 45%,#ead6db 100%);
-color:var(--text);
-min-height:100vh;
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,"Noto Sans",sans-serif;
+  color:var(--text);
+
+  /* BEAUTY PARLOUR BACKGROUND */
+  background:
+    linear-gradient(
+      rgba(53,7,25,.72),
+      rgba(53,7,25,.80)
+    ),
+    url("salon-bg.jpg") center/cover fixed no-repeat;
 }
 
+/* Main mobile container */
+
 .container{
-max-width:520px;
-margin:auto;
-padding:22px 16px 42px;
+  width:100%;
+  max-width:540px;
+  margin:auto;
+  padding:18px 15px 40px;
+}
+
+/* Glass main area */
+
+.main{
+  padding:22px 16px 30px;
+  border-radius:28px;
+
+  background:rgba(255,250,247,.92);
+
+  border:1px solid rgba(255,255,255,.7);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+  backdrop-filter:blur(10px);
 }
 
 /* HEADER */
 
 .header{
-text-align:center;
-padding:12px 0 20px;
-animation:fadeUp .7s ease;
+  text-align:center;
+  padding:4px 0 20px;
 }
 
 .logo{
-width:82px;
-height:82px;
-margin:auto;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
+  width:82px;
+  height:82px;
 
-background:
-linear-gradient(145deg,#7c2442,#4b1024);
+  margin:auto;
 
-color:var(--gold-light);
-font-family:Georgia,serif;
-font-size:29px;
-font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-border:2px solid var(--gold);
-box-shadow:
-0 8px 25px rgba(69,16,34,.25),
-inset 0 0 0 4px rgba(255,255,255,.05);
+  border-radius:50%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #751d42,
+      #39091f
+    );
+
+  color:var(--gold-light);
+
+  font-family:Georgia,serif;
+  font-size:28px;
+  font-weight:bold;
+
+  border:2px solid var(--gold);
+
+  box-shadow:
+    0 8px 25px rgba(60,10,30,.35),
+    inset 0 0 0 4px rgba(255,255,255,.06);
 }
 
 h1{
-margin:14px 0 4px;
-font-family:Georgia,serif;
-font-size:27px;
-letter-spacing:.3px;
-color:var(--wine-dark);
+  margin:14px 0 4px;
+
+  font-family:Georgia,serif;
+
+  font-size:27px;
+
+  color:var(--wine-dark);
 }
 
 .brandline{
-font-size:12px;
-letter-spacing:2px;
-text-transform:uppercase;
-color:#9b7a51;
-font-weight:bold;
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  color:#9b7945;
+
+  font-weight:bold;
 }
 
 .divider{
-width:70px;
-height:2px;
-background:linear-gradient(90deg,transparent,var(--gold),transparent);
-margin:14px auto;
+  width:80px;
+  height:2px;
+
+  margin:14px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
 }
 
 .subtitle{
-font-size:14px;
-line-height:1.6;
-color:#74686b;
+  font-size:13px;
+  line-height:1.6;
+
+  color:#766b6d;
 }
 
-/* EXPERIENCE TITLE */
+/* EXPERIENCE */
 
-.experience-title{
-text-align:center;
-margin:10px 0 18px;
+.experience{
+  text-align:center;
+  margin:8px 0 18px;
 }
 
-.experience-title .small{
-font-size:12px;
-letter-spacing:1.5px;
-text-transform:uppercase;
-color:#9b7a51;
-font-weight:bold;
+.experience-small{
+  font-size:11px;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+  color:#a07b46;
+
+  font-weight:bold;
 }
 
-.experience-title h2{
-font-family:Georgia,serif;
-font-size:22px;
-margin:6px 0;
-color:var(--wine);
+.experience h2{
+  margin:6px 0;
+
+  font-family:Georgia,serif;
+
+  font-size:23px;
+
+  color:var(--wine);
 }
 
-.experience-title p{
-font-size:13px;
-color:#777;
-margin:0;
+.experience p{
+  margin:0;
+
+  font-size:13px;
+
+  color:#777;
 }
 
 /* REVIEW CARD */
 
 .card{
-position:relative;
-background:rgba(255,255,255,.88);
-border-radius:20px;
-padding:20px;
-margin:15px 0;
+  position:relative;
 
-border:1px solid rgba(201,164,92,.35);
+  margin:15px 0;
 
-box-shadow:
-0 10px 28px rgba(80,30,45,.10);
+  padding:20px;
 
-animation:fadeUp .5s ease;
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.96),
+      rgba(250,240,237,.94)
+    );
+
+  border:1px solid rgba(212,176,106,.45);
+
+  box-shadow:
+    0 10px 28px rgba(70,20,35,.12);
+
+  animation:fadeUp .5s ease;
 }
 
 .card:before{
-content:"“";
-position:absolute;
-top:7px;
-right:17px;
-font-family:Georgia,serif;
-font-size:45px;
-color:rgba(201,164,92,.25);
+  content:"“";
+
+  position:absolute;
+
+  top:3px;
+  right:17px;
+
+  font-family:Georgia,serif;
+
+  font-size:48px;
+
+  color:rgba(212,176,106,.25);
 }
 
 .language{
-display:inline-block;
-padding:5px 10px;
-border-radius:30px;
-background:#f4e7e8;
-color:var(--wine);
-font-size:10px;
-font-weight:bold;
-letter-spacing:.5px;
-margin-bottom:12px;
+  display:inline-block;
+
+  padding:5px 11px;
+
+  border-radius:30px;
+
+  background:#f3e4e6;
+
+  color:var(--wine);
+
+  font-size:10px;
+
+  font-weight:bold;
+
+  letter-spacing:.5px;
+
+  margin-bottom:12px;
 }
 
 .review{
-font-size:15.5px;
-line-height:1.7;
-color:#4b4143;
-padding-right:12px;
+  padding-right:10px;
+
+  font-size:15px;
+
+  line-height:1.7;
+
+  color:#4c4245;
 }
+
+/* COPY BUTTON */
 
 .copy{
-width:100%;
-margin-top:16px;
-padding:13px;
+  width:100%;
 
-border:1px solid rgba(100,21,47,.15);
-border-radius:12px;
+  margin-top:16px;
 
-background:linear-gradient(135deg,#fff9f1,#f4e4e5);
+  padding:13px;
 
-color:var(--wine);
+  border:none;
 
-font-size:14px;
-font-weight:bold;
-cursor:pointer;
-transition:.2s;
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8ed,
+      #f2e0e3
+    );
+
+  color:var(--wine);
+
+  border:1px solid rgba(91,16,44,.15);
+
+  font-size:14px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:.2s;
 }
 
-.copy:hover{
-transform:translateY(-1px);
+.copy:active{
+  transform:scale(.98);
 }
 
-/* MORE BUTTON */
+/* MORE OPTIONS */
 
 .more{
-width:100%;
-padding:14px;
-margin-top:7px;
+  width:100%;
 
-border:1px solid var(--gold);
-border-radius:13px;
+  margin-top:7px;
 
-background:transparent;
-color:var(--wine);
+  padding:14px;
 
-font-size:14px;
-font-weight:bold;
-cursor:pointer;
+  border-radius:13px;
+
+  border:1px solid var(--gold);
+
+  background:
+    rgba(255,255,255,.55);
+
+  color:var(--wine);
+
+  font-size:14px;
+
+  font-weight:bold;
+
+  cursor:pointer;
 }
 
 /* GOOGLE BUTTON */
 
 .google{
-display:block;
-text-align:center;
+  display:block;
 
-margin-top:22px;
-padding:16px;
+  margin-top:22px;
 
-border-radius:14px;
+  padding:17px;
 
-background:linear-gradient(135deg,#721a39,#4b1024);
+  text-align:center;
 
-color:white;
-text-decoration:none;
+  text-decoration:none;
 
-font-size:16px;
-font-weight:bold;
+  border-radius:15px;
 
-box-shadow:
-0 8px 20px rgba(75,16,36,.25);
+  background:
+    linear-gradient(
+      135deg,
+      #721b3e,
+      #3d091f
+    );
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  box-shadow:
+    0 10px 25px rgba(55,5,25,.25);
 }
 
 .google span{
-display:block;
-font-size:11px;
-font-weight:normal;
-opacity:.8;
-margin-top:4px;
+  display:block;
+
+  margin-top:5px;
+
+  font-size:11px;
+
+  font-weight:normal;
+
+  opacity:.8;
 }
 
-/* NOTE */
+/* HONEST NOTE */
 
 .note{
-margin:18px 5px 0;
-padding:13px;
+  margin:18px 4px 0;
 
-border-radius:12px;
+  padding:13px;
 
-background:rgba(255,255,255,.55);
+  border-radius:12px;
 
-text-align:center;
-font-size:11px;
-line-height:1.6;
-color:#777;
+  background:rgba(255,255,255,.65);
+
+  text-align:center;
+
+  font-size:11px;
+
+  line-height:1.6;
+
+  color:#777;
 }
 
 /* CONTACT */
 
 .contact{
-margin-top:20px;
-padding:17px;
+  margin-top:20px;
 
-border-top:1px solid rgba(155,122,81,.25);
-border-bottom:1px solid rgba(155,122,81,.25);
+  padding:17px 5px;
 
-text-align:center;
+  border-top:
+    1px solid rgba(155,122,81,.25);
+
+  border-bottom:
+    1px solid rgba(155,122,81,.25);
+
+  text-align:center;
 }
 
 .contact-name{
-font-family:Georgia,serif;
-font-size:16px;
-font-weight:bold;
-color:var(--wine);
+  font-family:Georgia,serif;
+
+  font-size:17px;
+
+  font-weight:bold;
+
+  color:var(--wine);
 }
 
 .contact-info{
-font-size:12px;
-line-height:1.8;
-color:#777;
-margin-top:6px;
+  margin-top:6px;
+
+  font-size:12px;
+
+  line-height:1.8;
+
+  color:#777;
 }
 
 /* FOOTER */
 
 .footer{
-text-align:center;
-margin-top:20px;
-font-size:11px;
-color:#9a8b8e;
-letter-spacing:.3px;
+  text-align:center;
+
+  margin-top:20px;
+
+  font-size:11px;
+
+  color:#9a8b8e;
+
+  letter-spacing:.5px;
 }
 
 /* ANIMATION */
 
 @keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(10px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
+/* SMALL PHONES */
+
+@media(max-width:380px){
+
+  .container{
+    padding:10px;
+  }
+
+  .main{
+    padding:18px 12px 25px;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .review{
+    font-size:14px;
+  }
+
+}
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+<div class="main">
+
+<!-- HEADER -->
+
 <header class="header">
 
-<div class="logo">CB</div>
+<div class="logo">
+CB
+</div>
 
-<h1>Charming Beauty Care</h1>
+<h1>
+Charming Beauty Care
+</h1>
 
 <div class="brandline">
 Ladies Only • Bhopal
@@ -331,36 +500,56 @@ Your beauty, your experience, your story. ❤️
 </header>
 
 
-<section class="experience-title">
+<!-- EXPERIENCE -->
 
-<div class="small">We Value You</div>
+<section class="experience">
 
-<h2>⭐ Share Your Experience</h2>
+<div class="experience-small">
+WE VALUE YOU
+</div>
 
-<p>अपना वास्तविक अनुभव हमारे साथ साझा करें</p>
+<h2>
+⭐ Share Your Experience
+</h2>
+
+<p>
+अपना वास्तविक अनुभव हमारे साथ साझा करें
+</p>
 
 </section>
 
 
+<!-- REVIEWS -->
+
 <div id="reviews"></div>
 
+
+<!-- MORE -->
 
 <button class="more" onclick="showReviews()">
 ↻ &nbsp; दूसरे Review Options देखें
 </button>
 
 
+<!-- GOOGLE -->
+
 <a
 class="google"
 href="https://g.page/r/CbEnnOmKgF7GEAI/review"
-target="_blank">
+target="_blank"
+rel="noopener"
+>
 
 ⭐ &nbsp; Google पर Review करें
 
-<span>Review को अपने अनुभव के अनुसार edit करके submit करें</span>
+<span>
+Review को अपने वास्तविक अनुभव के अनुसार edit करके submit करें
+</span>
 
 </a>
 
+
+<!-- NOTE -->
 
 <div class="note">
 
@@ -371,6 +560,8 @@ target="_blank">
 </div>
 
 
+<!-- CONTACT -->
+
 <div class="contact">
 
 <div class="contact-name">
@@ -378,9 +569,16 @@ Charming Beauty Care
 </div>
 
 <div class="contact-info">
-📍 E-6/95, Flat No. 1, Shalimar Homes, Arera Colony, Bhopal<br>
-📞 9826246652<br>
+
+📍 E-6/95, Flat No. 1, Shalimar Homes, Arera Colony, Bhopal
+<br>
+
+📞 9826246652
+
+<br>
+
 ✨ Ladies Only
+
 </div>
 
 </div>
@@ -392,8 +590,12 @@ Beauty • Care • Confidence
 
 </div>
 
+</div>
+
 
 <script>
+
+/* REVIEW STARTERS */
 
 const reviews = [
 
@@ -401,22 +603,22 @@ const reviews = [
 
 {
 lang:"हिंदी",
-text:"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Service अच्छी थी और staff का व्यवहार भी बहुत friendly था।"
+text:"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Service अच्छी थी और staff का व्यवहार भी friendly था।"
 },
 
 {
 lang:"हिंदी",
-text:"मैंने यहाँ service ली और मेरा overall experience बहुत अच्छा रहा। Salon का माहौल भी comfortable है।"
+text:"मैंने यहाँ service ली और मेरा overall experience अच्छा रहा। Salon का माहौल भी comfortable है।"
 },
 
 {
 lang:"हिंदी",
-text:"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff का behaviour भी बहुत अच्छा था।"
+text:"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff का behaviour भी अच्छा था।"
 },
 
 {
 lang:"हिंदी",
-text:"Charming Beauty Care की service से मैं काफी खुश हूँ। काम अच्छे तरीके से किया गया और मेरा experience अच्छा रहा।"
+text:"Charming Beauty Care की service से मैं काफी खुश हूँ। काम अच्छे तरीके से किया गया।"
 },
 
 {
@@ -426,12 +628,12 @@ text:"Salon साफ-सुथरा और comfortable है। Staff polite 
 
 {
 lang:"हिंदी",
-text:"मुझे Charming Beauty Care में बहुत अच्छा experience मिला। Service professional लगी और मैं अपने result से खुश हूँ।"
+text:"मुझे Charming Beauty Care में अच्छा experience मिला। Service professional लगी।"
 },
 
 {
 lang:"हिंदी",
-text:"पहली बार यहाँ आई और experience अच्छा रहा। Staff बहुत polite और helpful था।"
+text:"पहली बार यहाँ आई और experience अच्छा रहा। Staff polite और helpful था।"
 },
 
 {
@@ -441,7 +643,7 @@ text:"बहुत अच्छी service मिली। Staff friendly है
 
 {
 lang:"हिंदी",
-text:"मेरी service बहुत अच्छी रही। Salon का environment अच्छा है और staff का behaviour भी अच्छा लगा।"
+text:"Salon का environment अच्छा है और staff का behaviour भी अच्छा लगा।"
 },
 
 {
@@ -451,17 +653,17 @@ text:"Overall मेरा experience बहुत अच्छा रहा। 
 
 {
 lang:"हिंदी",
-text:"यहाँ का काम काफी neat और professional लगा। मेरा experience अच्छा रहा।"
+text:"यहाँ का काम neat और professional लगा। मेरा experience अच्छा रहा।"
 },
 
 {
 lang:"हिंदी",
-text:"Charming Beauty Care में staff का व्यवहार बहुत अच्छा लगा और service भी अच्छी मिली।"
+text:"Staff का व्यवहार बहुत अच्छा लगा और service भी अच्छी मिली।"
 },
 
 {
 lang:"हिंदी",
-text:"Salon का माहौल अच्छा और comfortable है। मुझे यहाँ service लेना पसंद आया।"
+text:"Salon का माहौल pleasant और comfortable है। मुझे यहाँ service लेना अच्छा लगा।"
 },
 
 {
@@ -471,7 +673,7 @@ text:"मैंने यहाँ beauty service ली और result मेर
 
 {
 lang:"हिंदी",
-text:"Service के दौरान staff काफी caring और polite रहा। Overall अच्छा experience मिला।"
+text:"Service के दौरान staff caring और polite रहा। Overall अच्छा experience मिला।"
 },
 
 {
@@ -486,7 +688,7 @@ text:"Charming Beauty Care में मुझे अच्छा treatment औ�
 
 {
 lang:"हिंदी",
-text:"Salon का environment pleasant है और service भी अच्छी है।"
+text:"Salon का environment अच्छा है और service भी अच्छी है।"
 },
 
 {
@@ -496,8 +698,9 @@ text:"यहाँ पहली visit अच्छी रही। Service औ�
 
 {
 lang:"हिंदी",
-text:"Charming Beauty Care की service मुझे अच्छी लगी। Staff भी बहुत cooperative है।"
+text:"Charming Beauty Care की service मुझे अच्छी लगी। Staff भी cooperative है।"
 },
+
 
 /* ENGLISH */
 
@@ -508,7 +711,7 @@ text:"I had a really good experience at Charming Beauty Care. The service was go
 
 {
 lang:"English",
-text:"Loved my experience at Charming Beauty Care. The salon was clean, comfortable and the service was great."
+text:"Loved my experience at Charming Beauty Care. The salon was clean, comfortable and the service was good."
 },
 
 {
@@ -553,7 +756,7 @@ text:"My experience was very good. The service was professional and the staff wa
 
 {
 lang:"English",
-text:"I visited Charming Beauty Care for the first time and had a nice experience. The staff was very polite."
+text:"I visited Charming Beauty Care for the first time and had a nice experience. The staff was polite."
 },
 
 {
@@ -573,13 +776,14 @@ text:"Nice salon with good service. The staff was caring and made me feel comfor
 
 {
 lang:"English",
-text:"Had a pleasant experience at Charming Beauty Care. I liked the service and the professional approach."
+text:"Had a pleasant experience at Charming Beauty Care. I liked the service and professional approach."
 },
 
 {
 lang:"English",
 text:"Really happy with my visit. The service was good and the staff was friendly and helpful."
 },
+
 
 /* HINGLISH */
 
@@ -590,7 +794,7 @@ text:"Charming Beauty Care mein mera experience really good raha. Staff friendly
 
 {
 lang:"Hinglish",
-text:"Salon ka ambience bahut nice hai aur staff bhi polite hai. Overall experience kaafi good raha."
+text:"Salon ka ambience nice hai aur staff bhi polite hai. Overall experience kaafi good raha."
 },
 
 {
@@ -615,12 +819,12 @@ text:"Overall experience very good raha. Staff ka behaviour achha tha aur servic
 
 {
 lang:"Hinglish",
-text:"Charming Beauty Care mein service lene ka experience achha raha. Staff bahut helpful tha."
+text:"Charming Beauty Care mein service lene ka experience achha raha. Staff helpful tha."
 },
 
 {
 lang:"Hinglish",
-text:"Salon ka environment comfortable hai aur service bhi professional lagi. Overall happy with my visit."
+text:"Salon ka environment comfortable hai aur service professional lagi. Overall happy with my visit."
 },
 
 {
@@ -630,56 +834,63 @@ text:"Meri service achhe se ki gayi aur result bhi mujhe pasand aaya. Good exper
 
 {
 lang:"Hinglish",
-text:"Staff bahut polite tha aur service ke time kaafi comfortable feel hua. Nice experience."
+text:"Staff polite tha aur service ke time comfortable feel hua. Nice experience."
 }
 
 ];
 
 
-/* RANDOM 3 REVIEWS */
+/* RANDOM REVIEWS */
 
 function getRandomReviews(){
 
-let shuffled = [...reviews].sort(() => Math.random() - 0.5);
+  let shuffled =
+    [...reviews].sort(
+      () => Math.random() - 0.5
+    );
 
-return shuffled.slice(0,3);
-
+  return shuffled.slice(0,3);
 }
 
 
-/* DISPLAY REVIEWS */
+/* SHOW REVIEWS */
 
 function showReviews(){
 
-const box = document.getElementById("reviews");
+  const box =
+    document.getElementById("reviews");
 
-box.innerHTML = "";
+  box.innerHTML = "";
 
-getRandomReviews().forEach(item => {
+  getRandomReviews().forEach(item => {
 
-const card = document.createElement("div");
+    const card =
+      document.createElement("div");
 
-card.className = "card";
+    card.className = "card";
 
-card.innerHTML = `
+    card.innerHTML = `
 
-<div class="language">
-${item.lang}
-</div>
+      <div class="language">
+        ${item.lang}
+      </div>
 
-<div class="review">
-${item.text}
-</div>
+      <div class="review">
+        ${item.text}
+      </div>
 
-<button class="copy" onclick="copyReview(this)">
-📋 &nbsp; Review Copy करें
-</button>
+      <button
+        class="copy"
+        onclick="copyReview(this)"
+      >
+        📋 &nbsp; Review Copy करें
+      </button>
 
-`;
+    `;
 
-box.appendChild(card);
+    box.appendChild(card);
 
-});
+  });
 
 }
 
@@ -688,47 +899,58 @@ box.appendChild(card);
 
 function copyReview(button){
 
-const text =
-button.parentElement.querySelector(".review").innerText;
+  const text =
+    button.parentElement
+    .querySelector(".review")
+    .innerText;
 
-navigator.clipboard.writeText(text).then(() => {
+  navigator.clipboard.writeText(text)
 
-button.innerText = "✓ &nbsp; Copy हो गया";
+  .then(() => {
 
-setTimeout(() => {
+    button.innerText =
+      "✓ &nbsp; Copy हो गया";
 
-button.innerText = "📋 &nbsp; Review Copy करें";
+    setTimeout(() => {
 
-},2000);
+      button.innerText =
+        "📋 &nbsp; Review Copy करें";
 
-}).catch(() => {
+    },2000);
 
-const textarea = document.createElement("textarea");
+  })
 
-textarea.value = text;
+  .catch(() => {
 
-document.body.appendChild(textarea);
+    const textarea =
+      document.createElement("textarea");
 
-textarea.select();
+    textarea.value = text;
 
-document.execCommand("copy");
+    document.body.appendChild(textarea);
 
-textarea.remove();
+    textarea.select();
 
-button.innerText = "✓ &nbsp; Copy हो गया";
+    document.execCommand("copy");
 
-setTimeout(() => {
+    textarea.remove();
 
-button.innerText = "📋 &nbsp; Review Copy करें";
+    button.innerText =
+      "✓ &nbsp; Copy हो गया";
 
-},2000);
+    setTimeout(() => {
 
-});
+      button.innerText =
+        "📋 &nbsp; Review Copy करें";
+
+    },2000);
+
+  });
 
 }
 
 
-/* FIRST LOAD */
+/* INITIAL REVIEWS */
 
 showReviews();
 
@@ -736,3 +958,4 @@ showReviews();
 
 </body>
 </html>
+```
