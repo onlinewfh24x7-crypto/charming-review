@@ -3,15 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Charming Beauty Care | Share Your Experience</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
 font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#fff8f5,#f7e5e8);
+background:linear-gradient(135deg,#fff8f5,#f6e4e8);
 color:#333;
 }
 
@@ -23,27 +27,27 @@ padding:24px 16px 40px;
 
 .header{
 text-align:center;
-padding:10px 0 18px;
+padding:8px 0 18px;
 }
 
 .logo{
-width:72px;
-height:72px;
+width:76px;
+height:76px;
 margin:auto;
 border-radius:50%;
 background:#741936;
-color:white;
+color:#fff;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:26px;
+font-size:27px;
 font-weight:bold;
-box-shadow:0 6px 20px rgba(0,0,0,.15);
+box-shadow:0 7px 22px rgba(0,0,0,.16);
 }
 
 h1{
-margin:12px 0 5px;
-font-size:25px;
+margin:13px 0 5px;
+font-size:26px;
 color:#741936;
 }
 
@@ -56,17 +60,28 @@ color:#666;
 text-align:center;
 font-size:20px;
 font-weight:bold;
-margin:15px 0;
+margin:16px 0;
 color:#741936;
 }
 
 .card{
-background:white;
+background:#fff;
 border-radius:18px;
 padding:19px;
 margin:14px 0;
 box-shadow:0 5px 20px rgba(0,0,0,.08);
 border:1px solid #efd9dd;
+}
+
+.language{
+display:inline-block;
+font-size:11px;
+font-weight:bold;
+background:#f4e2e6;
+color:#741936;
+padding:5px 9px;
+border-radius:20px;
+margin-bottom:10px;
 }
 
 .review{
@@ -88,13 +103,17 @@ font-size:15px;
 cursor:pointer;
 }
 
+.copy:active{
+transform:scale(.98);
+}
+
 .more{
 width:100%;
 border:1px solid #741936;
 border-radius:12px;
 padding:14px;
-margin-top:5px;
-background:white;
+margin-top:6px;
+background:#fff;
 color:#741936;
 font-weight:bold;
 font-size:15px;
@@ -106,7 +125,7 @@ display:block;
 text-align:center;
 text-decoration:none;
 background:#741936;
-color:white;
+color:#fff;
 border-radius:14px;
 padding:16px;
 margin-top:20px;
@@ -177,135 +196,319 @@ Charming Beauty Care • Ladies Only • Bhopal
 
 </div>
 
+
 <script>
 
 const reviews = [
 
-"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Service अच्छी थी और staff का व्यवहार भी बहुत friendly था।",
+/* ================= HINDI REVIEWS ================= */
 
-"मैंने यहाँ service ली और मेरा overall experience बहुत अच्छा रहा। Salon का माहौल भी comfortable है।",
+{
+lang:"हिंदी",
+text:"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Service अच्छी थी और staff का व्यवहार भी बहुत friendly था।"
+},
 
-"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff का behaviour भी बहुत अच्छा था।",
+{
+lang:"हिंदी",
+text:"मैंने यहाँ service ली और मेरा overall experience बहुत अच्छा रहा। Salon का माहौल भी comfortable है।"
+},
 
-"Charming Beauty Care की service से मैं काफी खुश हूँ। काम अच्छे तरीके से किया गया और मेरा experience अच्छा रहा।",
+{
+lang:"हिंदी",
+text:"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff का behaviour भी बहुत अच्छा था।"
+},
 
-"Salon साफ-सुथरा और comfortable है। Staff polite है और service भी अच्छी लगी।",
+{
+lang:"हिंदी",
+text:"Charming Beauty Care की service से मैं काफी खुश हूँ। काम अच्छे तरीके से किया गया और मेरा experience अच्छा रहा।"
+},
 
-"मुझे Charming Beauty Care में बहुत अच्छा experience मिला। Service professional लगी और मैं अपने result से खुश हूँ।",
+{
+lang:"हिंदी",
+text:"Salon साफ-सुथरा और comfortable है। Staff polite है और service भी अच्छी लगी।"
+},
 
-"पहली बार यहाँ आई/आया और experience अच्छा रहा। Staff बहुत polite और helpful था।",
+{
+lang:"हिंदी",
+text:"मुझे Charming Beauty Care में बहुत अच्छा experience मिला। Service professional लगी और मैं अपने result से खुश हूँ।"
+},
 
-"बहुत अच्छी service मिली। Staff friendly है और काम भी अच्छे तरीके से किया गया।",
+{
+lang:"हिंदी",
+text:"पहली बार यहाँ आई और experience अच्छा रहा। Staff बहुत polite और helpful था।"
+},
 
-"मेरी service बहुत अच्छी रही। Salon का environment अच्छा है और staff का behaviour भी अच्छा लगा।",
+{
+lang:"हिंदी",
+text:"बहुत अच्छी service मिली। Staff friendly है और काम भी अच्छे तरीके से किया गया।"
+},
 
-"Overall मेरा experience बहुत अच्छा रहा। Charming Beauty Care की service मुझे पसंद आई।",
+{
+lang:"हिंदी",
+text:"मेरी service बहुत अच्छी रही। Salon का environment अच्छा है और staff का behaviour भी अच्छा लगा।"
+},
 
-"Service लेने के बाद मैं अपने look से काफी खुश हूँ। Staff ने patiently मेरी बात सुनी।",
+{
+lang:"हिंदी",
+text:"Overall मेरा experience बहुत अच्छा रहा। Charming Beauty Care की service मुझे पसंद आई।"
+},
 
-"यहाँ का काम काफी neat और professional लगा। मेरा experience अच्छा रहा।",
+{
+lang:"हिंदी",
+text:"Service लेने के बाद मैं अपने look से काफी खुश हूँ। Staff ने patiently मेरी बात सुनी।"
+},
 
-"Charming Beauty Care में staff का व्यवहार बहुत अच्छा लगा और service भी अच्छी मिली।",
+{
+lang:"हिंदी",
+text:"यहाँ का काम काफी neat और professional लगा। मेरा experience अच्छा रहा।"
+},
 
-"Salon का माहौल अच्छा और comfortable है। मुझे यहाँ service लेना पसंद आया।",
+{
+lang:"हिंदी",
+text:"Charming Beauty Care में staff का व्यवहार बहुत अच्छा लगा और service भी अच्छी मिली।"
+},
 
-"मैंने यहाँ beauty service ली और result मेरी उम्मीद के अनुसार अच्छा रहा।",
+{
+lang:"हिंदी",
+text:"Salon का माहौल अच्छा और comfortable है। मुझे यहाँ service लेना पसंद आया।"
+},
 
-"बहुत अच्छा experience रहा। Staff ने अच्छे तरीके से service दी।",
+{
+lang:"हिंदी",
+text:"मैंने यहाँ beauty service ली और result मेरी उम्मीद के अनुसार अच्छा रहा।"
+},
 
-"Service के दौरान staff काफी caring और polite रहा। Overall अच्छा experience मिला।",
+{
+lang:"हिंदी",
+text:"बहुत अच्छा experience रहा। Staff ने अच्छे तरीके से service दी।"
+},
 
-"मुझे यहाँ की service quality अच्छी लगी। Definitely अच्छा experience रहा।",
+{
+lang:"हिंदी",
+text:"Service के दौरान staff काफी caring और polite रहा। Overall अच्छा experience मिला।"
+},
 
-"Charming Beauty Care में मुझे अच्छा treatment और अच्छा behaviour मिला।",
+{
+lang:"हिंदी",
+text:"मुझे यहाँ की service quality अच्छी लगी। मेरा overall experience अच्छा रहा।"
+},
 
-"Salon का environment pleasant है और service भी अच्छी है।",
+{
+lang:"हिंदी",
+text:"Charming Beauty Care में मुझे अच्छा treatment और अच्छा behaviour मिला।"
+},
 
-"मैं अपनी service से काफी satisfied हूँ। Staff का behaviour भी अच्छा लगा।",
+{
+lang:"हिंदी",
+text:"Salon का environment pleasant है और service भी अच्छी है।"
+},
 
-"यहाँ पहली visit अच्छी रही। Service और staff दोनों अच्छे लगे।",
+{
+lang:"हिंदी",
+text:"मैं अपनी service से काफी satisfied हूँ। Staff का behaviour भी अच्छा लगा।"
+},
 
-"मेरा experience काफी अच्छा रहा। काम carefully किया गया।",
+{
+lang:"हिंदी",
+text:"यहाँ पहली visit अच्छी रही। Service और staff दोनों अच्छे लगे।"
+},
 
-"Charming Beauty Care की service मुझे अच्छी लगी। Staff भी बहुत cooperative है।",
+{
+lang:"हिंदी",
+text:"मेरा experience काफी अच्छा रहा। काम carefully किया गया।"
+},
 
-"Service अच्छी और professional लगी। Overall experience अच्छा रहा।",
+{
+lang:"हिंदी",
+text:"Charming Beauty Care की service मुझे अच्छी लगी। Staff भी बहुत cooperative है।"
+},
 
-"Salon की cleanliness और staff का behaviour दोनों अच्छे लगे।",
+{
+lang:"हिंदी",
+text:"Service अच्छी और professional लगी। Overall experience अच्छा रहा।"
+},
 
-"मुझे यहाँ बहुत comfortable feel हुआ। Service भी अच्छी मिली।",
+/* ================= ENGLISH REVIEWS ================= */
 
-"मेरी beauty service अच्छे तरीके से की गई और मैं result से खुश हूँ।",
+{
+lang:"English",
+text:"I had a really good experience at Charming Beauty Care. The service was good and the staff was friendly."
+},
 
-"यहाँ staff ने मेरी requirement को अच्छे से समझा। Experience अच्छा रहा।",
+{
+lang:"English",
+text:"Loved my experience at Charming Beauty Care. The salon was clean, comfortable and the service was great."
+},
 
-"Overall service अच्छी रही और staff भी friendly था।",
+{
+lang:"English",
+text:"Very nice beauty salon with polite and helpful staff. I had a good experience here."
+},
 
-"मुझे Charming Beauty Care का ambience अच्छा लगा और service भी अच्छी मिली।",
+{
+lang:"English",
+text:"I really liked the service at Charming Beauty Care. The staff was professional and welcoming."
+},
 
-"Service काफी अच्छी थी। Staff ने पूरे ध्यान से काम किया।",
+{
+lang:"English",
+text:"Had a wonderful experience. The service was done nicely and I was happy with the result."
+},
 
-"मैं अपने experience से खुश हूँ। यहाँ service quality अच्छी लगी।",
+{
+lang:"English",
+text:"The salon has a nice and comfortable atmosphere. Staff was polite and the service was good."
+},
 
-"बहुत अच्छा और comfortable experience रहा। Staff का behaviour भी अच्छा है।",
+{
+lang:"English",
+text:"Great experience at Charming Beauty Care. The staff understood my requirements and did a good job."
+},
 
-"यहाँ की service ने मुझे अच्छा result दिया। Overall मैं खुश हूँ।",
+{
+lang:"English",
+text:"I am happy with the service I received. The staff was friendly and professional."
+},
 
-"Salon में staff काफी helpful और polite लगा। मेरा experience अच्छा रहा।",
+{
+lang:"English",
+text:"Really good service and a pleasant salon environment. Overall, I had a nice experience."
+},
 
-"Charming Beauty Care में service लेते समय मुझे अच्छा और comfortable लगा।",
+{
+lang:"English",
+text:"My experience was very good. The service was professional and the staff was cooperative."
+},
 
-"मुझे यहाँ का professional approach पसंद आया। Service भी अच्छी थी।",
+{
+lang:"English",
+text:"I visited Charming Beauty Care for the first time and had a nice experience. The staff was very polite."
+},
 
-"Overall मेरा visit अच्छा रहा और service से मैं satisfied हूँ।",
+{
+lang:"English",
+text:"Good service, friendly staff and a comfortable environment. I had a positive experience."
+},
 
-"Staff ने बहुत अच्छे तरीके से service provide की। Experience अच्छा रहा।",
+{
+lang:"English",
+text:"I was happy with the service and the overall experience. Everything was handled nicely."
+},
 
-"यहाँ cleanliness और service दोनों अच्छी लगीं।",
+{
+lang:"English",
+text:"Nice salon with good service. The staff was caring and made me feel comfortable."
+},
 
-"मेरा experience positive रहा। Staff friendly और cooperative था।",
+{
+lang:"English",
+text:"Had a pleasant experience at Charming Beauty Care. I liked the service and the professional approach."
+},
 
-"Service अच्छी quality की लगी और staff का behaviour भी अच्छा था।",
+{
+lang:"English",
+text:"Really happy with my visit. The service was good and the staff was friendly and helpful."
+},
 
-"Charming Beauty Care में मुझे अच्छा experience मिला। मैं अपने result से खुश हूँ।",
+{
+lang:"English",
+text:"A comfortable place with professional service. My overall experience was good."
+},
 
-"यहाँ service लेते समय staff ने काफी care किया। Overall अच्छा लगा।",
+{
+lang:"English",
+text:"I liked the quality of service and the behaviour of the staff. Overall, a good experience."
+},
 
-"Salon का माहौल अच्छा है और service भी काफी अच्छी लगी।",
+/* ================= HINGLISH REVIEWS ================= */
 
-"मेरी visit अच्छी रही। Staff polite था और service भी अच्छी मिली।",
+{
+lang:"Hinglish",
+text:"Charming Beauty Care mein mera experience really good raha. Staff friendly tha aur service bhi achhi lagi."
+},
 
-"मुझे यहाँ की service पसंद आई। काम neat और अच्छे तरीके से किया गया।",
+{
+lang:"Hinglish",
+text:"Salon ka ambience bahut nice hai aur staff bhi polite hai. Overall experience kaafi good raha."
+},
 
-"Overall experience अच्छा रहा। Charming Beauty Care में मुझे अच्छी service मिली।",
+{
+lang:"Hinglish",
+text:"Service professional thi aur staff ne meri requirement ko properly samjha. Good experience overall."
+},
 
-"Service और staff दोनों का experience अच्छा रहा। मैं काफी खुश हूँ।"
+{
+lang:"Hinglish",
+text:"First visit thi aur experience achha raha. Staff friendly aur cooperative tha."
+},
+
+{
+lang:"Hinglish",
+text:"Mujhe yahan ki service kaafi achhi lagi. Salon clean aur comfortable hai."
+},
+
+{
+lang:"Hinglish",
+text:"Overall experience very good raha. Staff ka behaviour achha tha aur service bhi nice thi."
+},
+
+{
+lang:"Hinglish",
+text:"Charming Beauty Care mein service lene ka experience achha raha. Staff bahut helpful tha."
+},
+
+{
+lang:"Hinglish",
+text:"Salon ka environment comfortable hai aur service bhi professional lagi. Overall happy with my visit."
+},
+
+{
+lang:"Hinglish",
+text:"Meri service achhe se ki gayi aur result bhi mujhe pasand aaya. Good experience."
+},
+
+{
+lang:"Hinglish",
+text:"Staff bahut polite tha aur service ke time kaafi comfortable feel hua. Nice experience."
+}
 
 ];
 
+
+/* ================= RANDOM REVIEWS ================= */
+
 function getRandomReviews(){
 
-let shuffled=[...reviews].sort(()=>Math.random()-0.5);
+let shuffled = [...reviews].sort(() => Math.random() - 0.5);
 
 return shuffled.slice(0,3);
 
 }
 
+
+/* ================= SHOW REVIEWS ================= */
+
 function showReviews(){
 
-const box=document.getElementById("reviews");
+const box = document.getElementById("reviews");
 
-box.innerHTML="";
+box.innerHTML = "";
 
-getRandomReviews().forEach(text=>{
+getRandomReviews().forEach(item => {
 
-const card=document.createElement("div");
+const card = document.createElement("div");
 
-card.className="card";
+card.className = "card";
 
-card.innerHTML=`
+card.innerHTML = `
 
-<div class="review">${text}</div>
+<div class="language">
+${item.lang}
+</div>
+
+<div class="review">
+${item.text}
+</div>
 
 <button class="copy" onclick="copyReview(this)">
 📋 Review Copy करें
@@ -319,23 +522,56 @@ box.appendChild(card);
 
 }
 
+
+/* ================= COPY BUTTON ================= */
+
 function copyReview(button){
 
-const text=button.parentElement.querySelector(".review").innerText;
+const text =
+button.parentElement.querySelector(".review").innerText;
 
-navigator.clipboard.writeText(text).then(()=>{
+if(navigator.clipboard){
 
-button.innerText="✅ Copy हो गया";
+navigator.clipboard.writeText(text).then(() => {
 
-setTimeout(()=>{
+button.innerText = "✅ Copy हो गया";
 
-button.innerText="📋 Review Copy करें";
+setTimeout(() => {
+
+button.innerText = "📋 Review Copy करें";
 
 },2000);
 
 });
 
+}else{
+
+const textarea = document.createElement("textarea");
+
+textarea.value = text;
+
+document.body.appendChild(textarea);
+
+textarea.select();
+
+document.execCommand("copy");
+
+textarea.remove();
+
+button.innerText = "✅ Copy हो गया";
+
+setTimeout(() => {
+
+button.innerText = "📋 Review Copy करें";
+
+},2000);
+
 }
+
+}
+
+
+/* ================= FIRST LOAD ================= */
 
 showReviews();
 
