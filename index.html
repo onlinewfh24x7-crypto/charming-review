@@ -3,110 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Charming Beauty Care – Google Review</title>
+<title>Charming Beauty Care | Share Your Experience</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#fff8f5,#f7e5e8);
+color:#333;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #fff8f5, #f8e7e7);
-  color: #333;
+.container{
+max-width:520px;
+margin:auto;
+padding:24px 16px 40px;
 }
 
-.container {
-  max-width: 500px;
-  margin: auto;
-  padding: 25px 16px 40px;
-  text-align: center;
+.header{
+text-align:center;
+padding:10px 0 18px;
 }
 
-.logo {
-  width: 75px;
-  height: 75px;
-  margin: 5px auto 12px;
-  border-radius: 50%;
-  background: #7b1734;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  font-weight: bold;
-  box-shadow: 0 5px 18px rgba(0,0,0,.15);
+.logo{
+width:72px;
+height:72px;
+margin:auto;
+border-radius:50%;
+background:#741936;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+font-weight:bold;
+box-shadow:0 6px 20px rgba(0,0,0,.15);
 }
 
-h1 {
-  margin: 5px 0;
-  font-size: 25px;
-  color: #7b1734;
+h1{
+margin:12px 0 5px;
+font-size:25px;
+color:#741936;
 }
 
-.subtitle {
-  font-size: 15px;
-  margin-bottom: 22px;
-  color: #666;
+.subtitle{
+font-size:15px;
+color:#666;
 }
 
-.card {
-  background: white;
-  border-radius: 18px;
-  padding: 20px;
-  margin: 14px 0;
-  text-align: left;
-  box-shadow: 0 5px 20px rgba(0,0,0,.08);
-  border: 1px solid #f0d7d7;
+.title{
+text-align:center;
+font-size:20px;
+font-weight:bold;
+margin:15px 0;
+color:#741936;
 }
 
-.review {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
+.card{
+background:white;
+border-radius:18px;
+padding:19px;
+margin:14px 0;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+border:1px solid #efd9dd;
 }
 
-button {
-  width: 100%;
-  border: none;
-  border-radius: 12px;
-  padding: 13px;
-  margin-top: 14px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
+.review{
+font-size:16px;
+line-height:1.65;
+color:#444;
 }
 
-.copy {
-  background: #f3e1e5;
-  color: #7b1734;
+.copy{
+width:100%;
+border:0;
+border-radius:11px;
+padding:13px;
+margin-top:14px;
+background:#f3e1e5;
+color:#741936;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
 }
 
-.google {
-  display: block;
-  text-decoration: none;
-  background: #7b1734;
-  color: white;
-  padding: 16px;
-  border-radius: 14px;
-  font-weight: bold;
-  font-size: 17px;
-  margin-top: 22px;
+.more{
+width:100%;
+border:1px solid #741936;
+border-radius:12px;
+padding:14px;
+margin-top:5px;
+background:white;
+color:#741936;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
 }
 
-.refresh {
-  background: transparent;
-  color: #7b1734;
-  border: 1px solid #7b1734;
+.google{
+display:block;
+text-align:center;
+text-decoration:none;
+background:#741936;
+color:white;
+border-radius:14px;
+padding:16px;
+margin-top:20px;
+font-size:17px;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(116,25,54,.25);
 }
 
-.note {
-  font-size: 12px;
-  color: #777;
-  margin-top: 18px;
-  line-height: 1.5;
+.note{
+text-align:center;
+font-size:12px;
+line-height:1.5;
+color:#777;
+margin-top:18px;
 }
+
+.footer{
+text-align:center;
+font-size:12px;
+color:#999;
+margin-top:22px;
+}
+
 </style>
 </head>
 
@@ -114,31 +137,43 @@ button {
 
 <div class="container">
 
-  <div class="logo">CB</div>
+<div class="header">
 
-  <h1>Charming Beauty Care</h1>
+<div class="logo">CB</div>
 
-  <div class="subtitle">
-    आपका अनुभव हमारे लिए बहुत खास है ❤️
-  </div>
+<h1>Charming Beauty Care</h1>
 
-  <div id="reviews"></div>
+<div class="subtitle">
+आपका अनुभव हमारे लिए बहुत खास है ❤️
+</div>
 
-  <button class="refresh" onclick="showReviews()">
-    🔄 दूसरे Review Options देखें
-  </button>
+</div>
 
-  <a
-    class="google"
-    href="https://g.page/r/CbEnnOmKgF7GEAI/review"
-    target="_blank">
-    ⭐ Google पर Review करें
-  </a>
+<div class="title">
+⭐ अपना Experience Share करें
+</div>
 
-  <div class="note">
-    कृपया Review को अपने वास्तविक अनुभव के अनुसार
-    edit करके ही Google पर submit करें।
-  </div>
+<div id="reviews"></div>
+
+<button class="more" onclick="showReviews()">
+🔄 दूसरे Review Options देखें
+</button>
+
+<a
+class="google"
+href="https://g.page/r/CbEnnOmKgF7GEAI/review"
+target="_blank">
+⭐ Google पर Review करें
+</a>
+
+<div class="note">
+Review को अपने वास्तविक अनुभव के अनुसार edit करके ही
+Google पर submit करें।
+</div>
+
+<div class="footer">
+Charming Beauty Care • Ladies Only • Bhopal
+</div>
 
 </div>
 
@@ -148,71 +183,157 @@ const reviews = [
 
 "Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Service अच्छी थी और staff का व्यवहार भी बहुत friendly था।",
 
-"मैंने Charming Beauty Care में service ली और मेरा experience बहुत अच्छा रहा। Salon का माहौल भी काफी comfortable है।",
+"मैंने यहाँ service ली और मेरा overall experience बहुत अच्छा रहा। Salon का माहौल भी comfortable है।",
 
-"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff ने बहुत अच्छे तरीके से care किया।",
+"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff का behaviour भी बहुत अच्छा था।",
 
-"Charming Beauty Care की service से मैं काफी खुश हूँ। काम बहुत अच्छे तरीके से किया गया और overall experience अच्छा रहा।",
+"Charming Beauty Care की service से मैं काफी खुश हूँ। काम अच्छे तरीके से किया गया और मेरा experience अच्छा रहा।",
 
-"Salon साफ-सुथरा और comfortable है। Staff का व्यवहार अच्छा है और service भी अच्छी लगी।",
+"Salon साफ-सुथरा और comfortable है। Staff polite है और service भी अच्छी लगी।",
 
-"मुझे Charming Beauty Care में बहुत अच्छा experience मिला। Service professional थी और मैं अपने result से खुश हूँ।",
+"मुझे Charming Beauty Care में बहुत अच्छा experience मिला। Service professional लगी और मैं अपने result से खुश हूँ।",
 
-"पहली बार Charming Beauty Care में आई/आया और experience अच्छा रहा। Staff बहुत polite और helpful था।",
+"पहली बार यहाँ आई/आया और experience अच्छा रहा। Staff बहुत polite और helpful था।",
 
-"बहुत अच्छी service मिली। Charming Beauty Care में staff friendly है और काम भी अच्छे तरीके से किया गया।",
+"बहुत अच्छी service मिली। Staff friendly है और काम भी अच्छे तरीके से किया गया।",
 
-"मेरी service बहुत अच्छी रही। Salon का environment अच्छा है और staff का behaviour भी बहुत अच्छा लगा।",
+"मेरी service बहुत अच्छी रही। Salon का environment अच्छा है और staff का behaviour भी अच्छा लगा।",
 
-"Overall मेरा experience बहुत अच्छा रहा। Charming Beauty Care की service मुझे पसंद आई।"
+"Overall मेरा experience बहुत अच्छा रहा। Charming Beauty Care की service मुझे पसंद आई।",
+
+"Service लेने के बाद मैं अपने look से काफी खुश हूँ। Staff ने patiently मेरी बात सुनी।",
+
+"यहाँ का काम काफी neat और professional लगा। मेरा experience अच्छा रहा।",
+
+"Charming Beauty Care में staff का व्यवहार बहुत अच्छा लगा और service भी अच्छी मिली।",
+
+"Salon का माहौल अच्छा और comfortable है। मुझे यहाँ service लेना पसंद आया।",
+
+"मैंने यहाँ beauty service ली और result मेरी उम्मीद के अनुसार अच्छा रहा।",
+
+"बहुत अच्छा experience रहा। Staff ने अच्छे तरीके से service दी।",
+
+"Service के दौरान staff काफी caring और polite रहा। Overall अच्छा experience मिला।",
+
+"मुझे यहाँ की service quality अच्छी लगी। Definitely अच्छा experience रहा।",
+
+"Charming Beauty Care में मुझे अच्छा treatment और अच्छा behaviour मिला।",
+
+"Salon का environment pleasant है और service भी अच्छी है।",
+
+"मैं अपनी service से काफी satisfied हूँ। Staff का behaviour भी अच्छा लगा।",
+
+"यहाँ पहली visit अच्छी रही। Service और staff दोनों अच्छे लगे।",
+
+"मेरा experience काफी अच्छा रहा। काम carefully किया गया।",
+
+"Charming Beauty Care की service मुझे अच्छी लगी। Staff भी बहुत cooperative है।",
+
+"Service अच्छी और professional लगी। Overall experience अच्छा रहा।",
+
+"Salon की cleanliness और staff का behaviour दोनों अच्छे लगे।",
+
+"मुझे यहाँ बहुत comfortable feel हुआ। Service भी अच्छी मिली।",
+
+"मेरी beauty service अच्छे तरीके से की गई और मैं result से खुश हूँ।",
+
+"यहाँ staff ने मेरी requirement को अच्छे से समझा। Experience अच्छा रहा।",
+
+"Overall service अच्छी रही और staff भी friendly था।",
+
+"मुझे Charming Beauty Care का ambience अच्छा लगा और service भी अच्छी मिली।",
+
+"Service काफी अच्छी थी। Staff ने पूरे ध्यान से काम किया।",
+
+"मैं अपने experience से खुश हूँ। यहाँ service quality अच्छी लगी।",
+
+"बहुत अच्छा और comfortable experience रहा। Staff का behaviour भी अच्छा है।",
+
+"यहाँ की service ने मुझे अच्छा result दिया। Overall मैं खुश हूँ।",
+
+"Salon में staff काफी helpful और polite लगा। मेरा experience अच्छा रहा।",
+
+"Charming Beauty Care में service लेते समय मुझे अच्छा और comfortable लगा।",
+
+"मुझे यहाँ का professional approach पसंद आया। Service भी अच्छी थी।",
+
+"Overall मेरा visit अच्छा रहा और service से मैं satisfied हूँ।",
+
+"Staff ने बहुत अच्छे तरीके से service provide की। Experience अच्छा रहा।",
+
+"यहाँ cleanliness और service दोनों अच्छी लगीं।",
+
+"मेरा experience positive रहा। Staff friendly और cooperative था।",
+
+"Service अच्छी quality की लगी और staff का behaviour भी अच्छा था।",
+
+"Charming Beauty Care में मुझे अच्छा experience मिला। मैं अपने result से खुश हूँ।",
+
+"यहाँ service लेते समय staff ने काफी care किया। Overall अच्छा लगा।",
+
+"Salon का माहौल अच्छा है और service भी काफी अच्छी लगी।",
+
+"मेरी visit अच्छी रही। Staff polite था और service भी अच्छी मिली।",
+
+"मुझे यहाँ की service पसंद आई। काम neat और अच्छे तरीके से किया गया।",
+
+"Overall experience अच्छा रहा। Charming Beauty Care में मुझे अच्छी service मिली।",
+
+"Service और staff दोनों का experience अच्छा रहा। मैं काफी खुश हूँ।"
 
 ];
 
-function getRandomReviews() {
+function getRandomReviews(){
 
-  let shuffled = [...reviews].sort(() => Math.random() - 0.5);
+let shuffled=[...reviews].sort(()=>Math.random()-0.5);
 
-  return shuffled.slice(0, 3);
-
-}
-
-function showReviews() {
-
-  const box = document.getElementById("reviews");
-
-  box.innerHTML = "";
-
-  getRandomReviews().forEach((text, index) => {
-
-    const card = document.createElement("div");
-
-    card.className = "card";
-
-    card.innerHTML = `
-      <div class="review">${text}</div>
-      <button class="copy" onclick="copyReview(this)">
-        📋 Review Copy करें
-      </button>
-    `;
-
-    box.appendChild(card);
-
-  });
+return shuffled.slice(0,3);
 
 }
 
-function copyReview(button) {
+function showReviews(){
 
-  const text =
-    button.parentElement.querySelector(".review").innerText;
+const box=document.getElementById("reviews");
 
-  navigator.clipboard.writeText(text);
+box.innerHTML="";
 
-  button.innerText = "✅ Copy हो गया";
+getRandomReviews().forEach(text=>{
 
-  setTimeout(() => {
-    button.innerText = "📋 Review Copy करें";
-  }, 2000);
+const card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+
+<div class="review">${text}</div>
+
+<button class="copy" onclick="copyReview(this)">
+📋 Review Copy करें
+</button>
+
+`;
+
+box.appendChild(card);
+
+});
+
+}
+
+function copyReview(button){
+
+const text=button.parentElement.querySelector(".review").innerText;
+
+navigator.clipboard.writeText(text).then(()=>{
+
+button.innerText="✅ Copy हो गया";
+
+setTimeout(()=>{
+
+button.innerText="📋 Review Copy करें";
+
+},2000);
+
+});
 
 }
 
