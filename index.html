@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charming Beauty Care – Google Review</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #fff8f5, #f8e7e7);
+  color: #333;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 25px 16px 40px;
+  text-align: center;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  margin: 5px auto 12px;
+  border-radius: 50%;
+  background: #7b1734;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 5px 18px rgba(0,0,0,.15);
+}
+
+h1 {
+  margin: 5px 0;
+  font-size: 25px;
+  color: #7b1734;
+}
+
+.subtitle {
+  font-size: 15px;
+  margin-bottom: 22px;
+  color: #666;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 14px 0;
+  text-align: left;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+  border: 1px solid #f0d7d7;
+}
+
+.review {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+button {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 13px;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.copy {
+  background: #f3e1e5;
+  color: #7b1734;
+}
+
+.google {
+  display: block;
+  text-decoration: none;
+  background: #7b1734;
+  color: white;
+  padding: 16px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 17px;
+  margin-top: 22px;
+}
+
+.refresh {
+  background: transparent;
+  color: #7b1734;
+  border: 1px solid #7b1734;
+}
+
+.note {
+  font-size: 12px;
+  color: #777;
+  margin-top: 18px;
+  line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">CB</div>
+
+  <h1>Charming Beauty Care</h1>
+
+  <div class="subtitle">
+    आपका अनुभव हमारे लिए बहुत खास है ❤️
+  </div>
+
+  <div id="reviews"></div>
+
+  <button class="refresh" onclick="showReviews()">
+    🔄 दूसरे Review Options देखें
+  </button>
+
+  <a
+    class="google"
+    href="https://g.page/r/CbEnnOmKgF7GEAI/review"
+    target="_blank">
+    ⭐ Google पर Review करें
+  </a>
+
+  <div class="note">
+    कृपया Review को अपने वास्तविक अनुभव के अनुसार
+    edit करके ही Google पर submit करें।
+  </div>
+
+</div>
+
+<script>
+
+const reviews = [
+
+"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Service अच्छी थी और staff का व्यवहार भी बहुत friendly था।",
+
+"मैंने Charming Beauty Care में service ली और मेरा experience बहुत अच्छा रहा। Salon का माहौल भी काफी comfortable है।",
+
+"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff ने बहुत अच्छे तरीके से care किया।",
+
+"Charming Beauty Care की service से मैं काफी खुश हूँ। काम बहुत अच्छे तरीके से किया गया और overall experience अच्छा रहा।",
+
+"Salon साफ-सुथरा और comfortable है। Staff का व्यवहार अच्छा है और service भी अच्छी लगी।",
+
+"मुझे Charming Beauty Care में बहुत अच्छा experience मिला। Service professional थी और मैं अपने result से खुश हूँ।",
+
+"पहली बार Charming Beauty Care में आई/आया और experience अच्छा रहा। Staff बहुत polite और helpful था।",
+
+"बहुत अच्छी service मिली। Charming Beauty Care में staff friendly है और काम भी अच्छे तरीके से किया गया।",
+
+"मेरी service बहुत अच्छी रही। Salon का environment अच्छा है और staff का behaviour भी बहुत अच्छा लगा।",
+
+"Overall मेरा experience बहुत अच्छा रहा। Charming Beauty Care की service मुझे पसंद आई।"
+
+];
+
+function getRandomReviews() {
+
+  let shuffled = [...reviews].sort(() => Math.random() - 0.5);
+
+  return shuffled.slice(0, 3);
+
+}
+
+function showReviews() {
+
+  const box = document.getElementById("reviews");
+
+  box.innerHTML = "";
+
+  getRandomReviews().forEach((text, index) => {
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="review">${text}</div>
+      <button class="copy" onclick="copyReview(this)">
+        📋 Review Copy करें
+      </button>
+    `;
+
+    box.appendChild(card);
+
+  });
+
+}
+
+function copyReview(button) {
+
+  const text =
+    button.parentElement.querySelector(".review").innerText;
+
+  navigator.clipboard.writeText(text);
+
+  button.innerText = "✅ Copy हो गया";
+
+  setTimeout(() => {
+    button.innerText = "📋 Review Copy करें";
+  }, 2000);
+
+}
+
+showReviews();
+
+</script>
+
+</body>
+</html>
