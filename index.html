@@ -1,469 +1,961 @@
-
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#421321">
-<title>Charming Beauty Care | Smart Review</title>
-<meta name="description" content="Share your genuine experience at Charming Beauty Care, Bhopal.">
+
+<title>Charming Beauty Care | Share Your Experience</title>
+
 <style>
-:root {
-  --wine:#481426;
-  --wine2:#2d0c18;
-  --gold:#d7b56d;
-  --cream:#fffaf2;
-  --ink:#38242b;
+*{
+  box-sizing:border-box;
 }
-* { box-sizing:border-box; }
-body {
+
+:root{
+  --wine:#5b102c;
+  --wine-dark:#350719;
+  --gold:#d4b06a;
+  --gold-light:#f3dfad;
+  --white:#fffaf7;
+  --text:#40373a;
+}
+
+body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--ink);
-  background:
-    linear-gradient(135deg,rgba(39,8,19,.87),rgba(75,20,39,.80)),
-    url("salon-bg.jpg") center/cover fixed;
   min-height:100vh;
-  padding:22px 12px 35px;
+  font-family:Arial,"Noto Sans",sans-serif;
+  color:var(--text);
+
+  /* BEAUTY PARLOUR BACKGROUND */
+  background:
+    linear-gradient(
+      rgba(53,7,25,.72),
+      rgba(53,7,25,.80)
+    ),
+    url("salon-bg.jpg") center/cover fixed no-repeat;
 }
-.page { width:100%; max-width:650px; margin:auto; }
-.card {
-  background:rgba(255,250,242,.97);
-  border:1px solid var(--gold);
-  border-radius:20px;
-  padding:24px;
-  box-shadow:0 18px 55px #17050b80;
+
+/* Main mobile container */
+
+.container{
+  width:100%;
+  max-width:540px;
+  margin:auto;
+  padding:18px 15px 40px;
 }
-header { text-align:center; }
-.logo {
-  display:block;
-  width:100px;
-  height:100px;
-  object-fit:contain;
+
+/* Glass main area */
+
+.main{
+  padding:22px 16px 30px;
+  border-radius:28px;
+
+  background:rgba(255,250,247,.92);
+
+  border:1px solid rgba(255,255,255,.7);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+  backdrop-filter:blur(10px);
+}
+
+/* HEADER */
+
+.header{
+  text-align:center;
+  padding:4px 0 20px;
+}
+
+.logo{
+  width:82px;
+  height:82px;
+
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
   border-radius:50%;
-  margin:0 auto 12px;
-  background:#fff;
-  border:2px solid var(--gold);
-}
-h1 {
-  color:var(--wine);
+
+  background:
+    linear-gradient(
+      145deg,
+      #751d42,
+      #39091f
+    );
+
+  color:var(--gold-light);
+
   font-family:Georgia,serif;
-  font-size:clamp(25px,5vw,34px);
-  margin:5px 0;
+  font-size:28px;
+  font-weight:bold;
+
+  border:2px solid var(--gold);
+
+  box-shadow:
+    0 8px 25px rgba(60,10,30,.35),
+    inset 0 0 0 4px rgba(255,255,255,.06);
 }
-.subtitle { margin:8px 0; line-height:1.6; color:#715661; }
-.gold-line {
-  height:1px;
-  background:linear-gradient(to right,transparent,var(--gold),transparent);
-  margin:20px 0;
+
+h1{
+  margin:14px 0 4px;
+
+  font-family:Georgia,serif;
+
+  font-size:27px;
+
+  color:var(--wine-dark);
 }
-h2 { font-size:18px; color:var(--wine); margin:18px 0 10px; }
-.note {
+
+.brandline{
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  color:#9b7945;
+
+  font-weight:bold;
+}
+
+.divider{
+  width:80px;
+  height:2px;
+
+  margin:14px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.subtitle{
   font-size:13px;
   line-height:1.6;
-  background:#f6ecdf;
-  border-left:3px solid var(--gold);
-  border-radius:7px;
-  padding:11px 12px;
+
+  color:#766b6d;
 }
-.options { display:grid; gap:10px; }
-.option {
-  width:100%;
-  text-align:left;
-  padding:13px;
-  border:1px solid #e2cfa9;
-  border-radius:11px;
-  background:white;
-  color:var(--ink);
-  cursor:pointer;
-  font-size:14px;
-  line-height:1.5;
-}
-.option:hover, .option:focus-visible {
-  border-color:var(--wine);
-  outline:2px solid #d7b56d66;
-}
-.option.selected {
-  background:#f4e7d2;
-  border:2px solid var(--wine);
-}
-.option small { display:block; color:#7c6270; margin-bottom:3px; }
-textarea {
-  width:100%;
-  min-height:155px;
-  resize:vertical;
-  border:1px solid #d7c5b7;
-  border-radius:11px;
-  padding:14px;
-  font:15px/1.65 Arial,sans-serif;
-  color:var(--ink);
-  background:white;
-}
-textarea:focus { outline:2px solid #d7b56d; border-color:var(--wine); }
-.counter { text-align:right; font-size:12px; color:#7c6270; margin-top:5px; }
-.buttons { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:13px; }
-button.action {
-  border:0;
-  border-radius:10px;
-  padding:13px 12px;
-  font-size:14px;
-  font-weight:bold;
-  cursor:pointer;
-  min-height:46px;
-}
-.primary { background:var(--wine); color:white; }
-.secondary { background:#ead9b8; color:var(--wine2); }
-.google {
-  display:block;
-  width:100%;
-  text-decoration:none;
+
+/* EXPERIENCE */
+
+.experience{
   text-align:center;
-  background:var(--wine);
-  color:white;
-  padding:15px 12px;
-  margin-top:12px;
-  border-radius:10px;
+  margin:8px 0 18px;
+}
+
+.experience-small{
+  font-size:11px;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+  color:#a07b46;
+
   font-weight:bold;
-  line-height:1.4;
 }
-button:disabled { opacity:.55; cursor:not-allowed; }
-.status {
-  display:none;
-  padding:11px;
-  margin-top:12px;
-  border-radius:9px;
+
+.experience h2{
+  margin:6px 0;
+
+  font-family:Georgia,serif;
+
+  font-size:23px;
+
+  color:var(--wine);
+}
+
+.experience p{
+  margin:0;
+
+  font-size:13px;
+
+  color:#777;
+}
+
+/* REVIEW CARD */
+
+.card{
+  position:relative;
+
+  margin:15px 0;
+
+  padding:20px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.96),
+      rgba(250,240,237,.94)
+    );
+
+  border:1px solid rgba(212,176,106,.45);
+
+  box-shadow:
+    0 10px 28px rgba(70,20,35,.12);
+
+  animation:fadeUp .5s ease;
+}
+
+.card:before{
+  content:"“";
+
+  position:absolute;
+
+  top:3px;
+  right:17px;
+
+  font-family:Georgia,serif;
+
+  font-size:48px;
+
+  color:rgba(212,176,106,.25);
+}
+
+.language{
+  display:inline-block;
+
+  padding:5px 11px;
+
+  border-radius:30px;
+
+  background:#f3e4e6;
+
+  color:var(--wine);
+
+  font-size:10px;
+
+  font-weight:bold;
+
+  letter-spacing:.5px;
+
+  margin-bottom:12px;
+}
+
+.review{
+  padding-right:10px;
+
+  font-size:15px;
+
+  line-height:1.7;
+
+  color:#4c4245;
+}
+
+/* COPY BUTTON */
+
+.copy{
+  width:100%;
+
+  margin-top:16px;
+
+  padding:13px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8ed,
+      #f2e0e3
+    );
+
+  color:var(--wine);
+
+  border:1px solid rgba(91,16,44,.15);
+
   font-size:14px;
-  line-height:1.5;
-  overflow-wrap:anywhere;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:.2s;
 }
-.status.show { display:block; }
-.status.ok { background:#e8f5e9; color:#20572b; }
-.status.warn { background:#fff0d6; color:#704600; }
-footer { text-align:center; color:#f9ead3; font-size:12px; line-height:1.7; margin-top:18px; }
-footer a { color:#ffe4a8; }
-@media(max-width:420px) {
-  .card { padding:17px; }
-  .buttons { grid-template-columns:1fr; }
-  .logo { width:86px; height:86px; }
+
+.copy:active{
+  transform:scale(.98);
 }
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after { scroll-behavior:auto !important; }
+
+/* MORE OPTIONS */
+
+.more{
+  width:100%;
+
+  margin-top:7px;
+
+  padding:14px;
+
+  border-radius:13px;
+
+  border:1px solid var(--gold);
+
+  background:
+    rgba(255,255,255,.55);
+
+  color:var(--wine);
+
+  font-size:14px;
+
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+/* GOOGLE BUTTON */
+
+.google{
+  display:block;
+
+  margin-top:22px;
+
+  padding:17px;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #721b3e,
+      #3d091f
+    );
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  box-shadow:
+    0 10px 25px rgba(55,5,25,.25);
+}
+
+.google span{
+  display:block;
+
+  margin-top:5px;
+
+  font-size:11px;
+
+  font-weight:normal;
+
+  opacity:.8;
+}
+
+/* HONEST NOTE */
+
+.note{
+  margin:18px 4px 0;
+
+  padding:13px;
+
+  border-radius:12px;
+
+  background:rgba(255,255,255,.65);
+
+  text-align:center;
+
+  font-size:11px;
+
+  line-height:1.6;
+
+  color:#777;
+}
+
+/* CONTACT */
+
+.contact{
+  margin-top:20px;
+
+  padding:17px 5px;
+
+  border-top:
+    1px solid rgba(155,122,81,.25);
+
+  border-bottom:
+    1px solid rgba(155,122,81,.25);
+
+  text-align:center;
+}
+
+.contact-name{
+  font-family:Georgia,serif;
+
+  font-size:17px;
+
+  font-weight:bold;
+
+  color:var(--wine);
+}
+
+.contact-info{
+  margin-top:6px;
+
+  font-size:12px;
+
+  line-height:1.8;
+
+  color:#777;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+
+  margin-top:20px;
+
+  font-size:11px;
+
+  color:#9a8b8e;
+
+  letter-spacing:.5px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* SMALL PHONES */
+
+@media(max-width:380px){
+
+  .container{
+    padding:10px;
+  }
+
+  .main{
+    padding:18px 12px 25px;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .review{
+    font-size:14px;
+  }
+
 }
 </style>
 </head>
+
+
 <body>
-<main class="page">
-<section class="card">
-  <header>
-    <img class="logo" src="charminglogo.png" alt="Charming Beauty Care logo"
-      onerror="this.style.display='none'">
-    <h1>Charming Beauty Care</h1>
-    <p class="subtitle">Ladies Beauty Parlour &amp; Training Center<br>
-      Arera Colony, Bhopal</p>
-    <p class="subtitle">We value your genuine feedback ✨</p>
-  </header>
 
-  <div class="gold-line"></div>
+<div class="container">
 
-  <p class="note">
-    Choose a starting idea, then edit it to describe your own experience.
-    Please share only what is true for you. You can write in Hindi,
-    English or Hinglish.
-  </p>
+<div class="main">
 
-  <h2>Step 1 — Choose a review idea</h2>
-  <div id="options" class="options" aria-label="Review ideas"></div>
+<!-- HEADER -->
 
-  <div class="buttons">
-    <button type="button" class="action secondary" id="moreBtn">
-      More Review Options →
-    </button>
-    <button type="button" class="action secondary" id="resetBtn">
-      Reset Selected Review
-    </button>
-  </div>
+<header class="header">
 
-  <h2>Step 2 — Edit your review</h2>
-  <label for="reviewText" class="subtitle">
-    Add details about the service you actually received.
-  </label>
-  <textarea id="reviewText" maxlength="1200"
-    placeholder="Write about your real experience here..."></textarea>
-  <div class="counter"><span id="charCount">0</span>/1200 characters</div>
+<div class="logo">
+CB
+</div>
 
-  <div class="buttons">
-    <button type="button" class="action primary" id="copyBtn">
-      📋 Copy Review
-    </button>
-    <button type="button" class="action secondary" id="clearBtn">
-      Clear Text
-    </button>
-  </div>
+<h1>
+Charming Beauty Care
+</h1>
 
-  <div id="status" class="status" role="status" aria-live="polite"></div>
+<div class="brandline">
+Ladies Only • Bhopal
+</div>
 
-  <a class="google" id="googleBtn"
-     href="https://g.page/r/CbEnnOmKgF7GEAI/review"
-     target="_blank" rel="noopener noreferrer">
-    ⭐ Write Review on Google
-  </a>
+<div class="divider"></div>
 
-  <p class="note" style="margin-top:14px">
-    Copy Review only copies your text. On Google, paste it, check it once
-    more, and submit it yourself. Posting a review is optional.
-  </p>
+<div class="subtitle">
+Your beauty, your experience, your story. ❤️
+</div>
+
+</header>
+
+
+<!-- EXPERIENCE -->
+
+<section class="experience">
+
+<div class="experience-small">
+WE VALUE YOU
+</div>
+
+<h2>
+⭐ Share Your Experience
+</h2>
+
+<p>
+अपना वास्तविक अनुभव हमारे साथ साझा करें
+</p>
+
 </section>
 
-<footer>
-  <strong>CHARMING BEAUTY CARE</strong><br>
-  E-6/95, Flat No. 1, Shalimar Homes, Arera Colony, Bhopal<br>
-  Call: <a href="tel:9826246652">9826246652</a>
-</footer>
-</main>
+
+<!-- REVIEWS -->
+
+<div id="reviews"></div>
+
+
+<!-- MORE -->
+
+<button class="more" onclick="showReviews()">
+↻ &nbsp; दूसरे Review Options देखें
+</button>
+
+
+<!-- GOOGLE -->
+
+<a
+class="google"
+href="https://g.page/r/CbEnnOmKgF7GEAI/review"
+target="_blank"
+rel="noopener"
+>
+
+⭐ &nbsp; Google पर Review करें
+
+<span>
+Review को अपने वास्तविक अनुभव के अनुसार edit करके submit करें
+</span>
+
+</a>
+
+
+<!-- NOTE -->
+
+<div class="note">
+
+❤️ आपका honest feedback हमारे लिए बहुत valuable है।<br>
+
+कृपया review को अपने वास्तविक अनुभव के अनुसार edit करके ही submit करें।
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="contact">
+
+<div class="contact-name">
+Charming Beauty Care
+</div>
+
+<div class="contact-info">
+
+📍 E-6/95, Flat No. 1, Shalimar Homes, Arera Colony, Bhopal
+<br>
+
+📞 9826246652
+
+<br>
+
+✨ Ladies Only
+
+</div>
+
+</div>
+
+
+<div class="footer">
+Beauty • Care • Confidence
+</div>
+
+</div>
+
+</div>
+
 
 <script>
-"use strict";
 
-/*
-  These are editable review STARTERS, not customer testimonials.
-  Customers should keep only statements that match their own experience.
-*/
-const reviewIdeas = [
-  "Mera experience yahan achha raha. Mujhe sabse achha laga: [apna experience likhein].",
-  "I visited Charming Beauty Care for [service]. My genuine feedback is: [your feedback].",
-  "Yahan ka atmosphere mujhe [apna anubhav] laga. I would like to mention: [detail].",
-  "Maine [service] karwayi aur mera experience [apne shabdon mein] raha.",
-  "The thing I appreciated most was [specific detail from your visit].",
-  "Staff ke behaviour ke baare mein mera experience: [apni sachchi rai].",
-  "I would describe my visit as [your honest description] because [reason].",
-  "Mujhe [service ka naam] ke dauran [kya achha ya behtar ho sakta tha] laga.",
-  "My visit was for [service]. One thing worth sharing is [real detail].",
-  "Salon ke environment ko lekar meri rai hai: [apna feedback].",
-  "Meri visit ka sabse memorable part tha [real experience].",
-  "I liked [specific thing], while [optional suggestion] could be improved.",
-  "Yahan aakar mujhe [apna asli anubhav] hua. Meri feedback: [detail].",
-  "For my [service] appointment, I noticed [specific and true detail].",
-  "I want to share my experience about [service or staff interaction].",
-  "Mujhe salon mein [cleanliness/comfort/other real observation] laga.",
-  "My honest opinion after the visit: [your own words].",
-  "Maine yahan [service] li. Iske baare mein meri rai: [real feedback].",
-  "The service I received was [honest description]. One detail was [detail].",
-  "Agar aap apna experience share karna chahein, meri visit mein [real detail].",
-  "I appreciated [specific detail] during my appointment.",
-  "Meri appointment [service] ke liye thi. Mera feedback hai [detail].",
-  "The salon experience felt [your honest description] to me.",
-  "Mujhe [specific cheez] pasand aayi; meri ek suggestion hai [optional suggestion].",
-  "My feedback about the appointment process is [honest feedback].",
-  "Yahan ki [service/setting] ke baare mein mera anubhav [detail] raha.",
-  "I would like to mention [one true thing about your visit].",
-  "Meri visit mein [specific detail] achha laga. Baaki feedback: [your view].",
-  "I visited for [service] and would describe my experience as [honest view].",
-  "Mera feedback simple hai: [apne asli experience ko apne shabdon mein likhein].",
-  "I noticed [specific detail] when I visited Charming Beauty Care.",
-  "Yahan [service] karwane ke baad meri rai hai [honest feedback].",
-  "One thing I would tell the salon is [genuine compliment or suggestion].",
-  "My experience with [service] was [your honest view], especially [detail].",
-  "Mujhe [real detail] achha laga. Main apna feedback share karna chahta/chahti hoon.",
-  "The part of my visit I want to describe is [specific experience].",
-  "Maine [service] ke liye visit kiya. Meri sachchi rai: [feedback].",
-  "My feedback on comfort and communication is [your experience].",
-  "Salon visit ke dauran [specific thing] ke baare mein meri rai [detail].",
-  "I appreciated the explanation about [service/product], because [reason].",
-  "Meri appointment ka experience [honest description] tha; [detail] mention karna chahta/chahti hoon.",
-  "What stood out to me was [something you actually experienced].",
-  "Yahan ki service ke baare mein main kehna chahunga/chahungi [your own view].",
-  "I would describe the staff interaction as [your honest experience].",
-  "Mujhe [specific service] ke baare mein [real feedback] laga.",
-  "A useful thing to know about my visit is [genuine detail].",
-  "Meri taraf se feedback: [what worked well or what could improve].",
-  "I visited on [approximate date, optional] for [service]. My feedback: [detail].",
-  "Yahan ke experience mein [specific detail] mere liye important tha.",
-  "The result of my service looked/felt [your honest observation].",
-  "Mujhe appointment ke dauran [real detail] achha laga.",
-  "I want to share a balanced review: [what went well] and [suggestion, if any].",
-  "Meri visit ka ek achha point tha [real detail].",
-  "My experience may help others understand [service/process]. My feedback: [detail].",
-  "Yahan aane par [specific experience] hua. Meri rai [honest words].",
-  "I found [specific part of the visit] [your honest description].",
-  "Meri [service] appointment ke baare mein ek baat: [real observation].",
-  "The communication about [price/service/timing] was [your true experience].",
-  "Mujhe [real detail] ke baare mein apni feedback deni hai: [feedback].",
-  "I would like to mention [specific detail] about my visit.",
-  "My visit for [service] was [honest description]. What I noticed was [detail].",
-  "Yahan ka experience mere liye [your own words] raha.",
-  "I appreciated the attention given to [specific detail, if true].",
-  "Meri rai mein [specific aspect] [honest opinion] tha.",
-  "One suggestion from my side is [constructive suggestion, if any].",
-  "Mujhe [service] ke dauran [comfort/communication/result] ke baare mein [feedback].",
-  "The main reason for my feedback is [real detail from your visit].",
-  "Mera experience share karne ka reason hai [specific true detail].",
-  "I want to describe the service I received: [your honest description].",
-  "Maine [service] choose ki thi. Mere liye [specific detail] important raha.",
-  "The best way to describe my visit is [your own words].",
-  "Yahan aakar mujhe [real observation] laga, aur meri suggestion [optional].",
-  "I was looking for [service]. My actual experience was [honest feedback].",
-  "Meri visit mein [specific moment] yaad raha. Iske baare mein [detail].",
-  "My review is about [service]. I want to share [specific, true observation].",
-  "Mujhe [staff communication/service result/setting] ke baare mein [feedback].",
-  "I noticed [real detail] and would like to share it with others.",
-  "Mera feedback [service] ke baare mein hai: [apna experience].",
-  "During my visit, [specific thing] happened. My feedback is [honest view].",
-  "I appreciated [detail] and would suggest [optional improvement].",
-  "Yahan ki appointment ke baare mein meri rai [real feedback] hai.",
-  "My honest feedback in one sentence: [write your own sentence].",
-  "Mujhe yahan [specific detail] laga. Main apna asli experience share kar raha/rahi hoon.",
-  "The service met/did not meet my expectations because [honest reason].",
-  "Meri visit ka overall experience [honest description] raha.",
-  "I want to share one thing about [service]: [specific observation].",
-  "Maine jo service li, uske baare mein meri personal feedback [detail].",
-  "Aap apni review mein ye share kar sakte hain: [your real experience].",
-  "The part I would like to highlight is [genuine detail].",
-  "Mujhe [specific aspect] ke baare mein achha/aur behtar [honest feedback] laga.",
-  "My feedback for the team is [genuine compliment or suggestion].",
-  "Maine [service] karwayi aur main apni rai is tarah describe karunga/karungi: [detail].",
-  "My visit taught me [something true about the service or process].",
-  "Yahan ke service experience mein [real detail] mention karna chahta/chahti hoon.",
-  "I would describe the value and service as [your honest opinion].",
-  "Meri taraf se ek suggestion [optional] aur ek achhi baat [real detail] hai.",
-  "I want my review to reflect this real detail: [your own experience].",
-  "Charming Beauty Care mein meri visit ka feedback: [write what actually happened].",
-  "My personal review: I came for [service] and my experience was [honest detail].",
-  "Mera genuine feedback: [apne asli anubhav ko apne shabdon mein likhein]."
+/* REVIEW STARTERS */
+
+const reviews = [
+
+/* HINDI */
+
+{
+lang:"हिंदी",
+text:"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Service अच्छी थी और staff का व्यवहार भी friendly था।"
+},
+
+{
+lang:"हिंदी",
+text:"मैंने यहाँ service ली और मेरा overall experience अच्छा रहा। Salon का माहौल भी comfortable है।"
+},
+
+{
+lang:"हिंदी",
+text:"बहुत अच्छा beauty salon है। Service अच्छी लगी और staff का behaviour भी अच्छा था।"
+},
+
+{
+lang:"हिंदी",
+text:"Charming Beauty Care की service से मैं काफी खुश हूँ। काम अच्छे तरीके से किया गया।"
+},
+
+{
+lang:"हिंदी",
+text:"Salon साफ-सुथरा और comfortable है। Staff polite है और service भी अच्छी लगी।"
+},
+
+{
+lang:"हिंदी",
+text:"मुझे Charming Beauty Care में अच्छा experience मिला। Service professional लगी।"
+},
+
+{
+lang:"हिंदी",
+text:"पहली बार यहाँ आई और experience अच्छा रहा। Staff polite और helpful था।"
+},
+
+{
+lang:"हिंदी",
+text:"बहुत अच्छी service मिली। Staff friendly है और काम भी अच्छे तरीके से किया गया।"
+},
+
+{
+lang:"हिंदी",
+text:"Salon का environment अच्छा है और staff का behaviour भी अच्छा लगा।"
+},
+
+{
+lang:"हिंदी",
+text:"Overall मेरा experience बहुत अच्छा रहा। Charming Beauty Care की service मुझे पसंद आई।"
+},
+
+{
+lang:"हिंदी",
+text:"यहाँ का काम neat और professional लगा। मेरा experience अच्छा रहा।"
+},
+
+{
+lang:"हिंदी",
+text:"Staff का व्यवहार बहुत अच्छा लगा और service भी अच्छी मिली।"
+},
+
+{
+lang:"हिंदी",
+text:"Salon का माहौल pleasant और comfortable है। मुझे यहाँ service लेना अच्छा लगा।"
+},
+
+{
+lang:"हिंदी",
+text:"मैंने यहाँ beauty service ली और result मेरी उम्मीद के अनुसार अच्छा रहा।"
+},
+
+{
+lang:"हिंदी",
+text:"Service के दौरान staff caring और polite रहा। Overall अच्छा experience मिला।"
+},
+
+{
+lang:"हिंदी",
+text:"मुझे यहाँ की service quality अच्छी लगी। मेरा overall experience अच्छा रहा।"
+},
+
+{
+lang:"हिंदी",
+text:"Charming Beauty Care में मुझे अच्छा treatment और अच्छा behaviour मिला।"
+},
+
+{
+lang:"हिंदी",
+text:"Salon का environment अच्छा है और service भी अच्छी है।"
+},
+
+{
+lang:"हिंदी",
+text:"यहाँ पहली visit अच्छी रही। Service और staff दोनों अच्छे लगे।"
+},
+
+{
+lang:"हिंदी",
+text:"Charming Beauty Care की service मुझे अच्छी लगी। Staff भी cooperative है।"
+},
+
+
+/* ENGLISH */
+
+{
+lang:"English",
+text:"I had a really good experience at Charming Beauty Care. The service was good and the staff was friendly."
+},
+
+{
+lang:"English",
+text:"Loved my experience at Charming Beauty Care. The salon was clean, comfortable and the service was good."
+},
+
+{
+lang:"English",
+text:"Very nice beauty salon with polite and helpful staff. I had a good experience here."
+},
+
+{
+lang:"English",
+text:"I really liked the service at Charming Beauty Care. The staff was professional and welcoming."
+},
+
+{
+lang:"English",
+text:"Had a wonderful experience. The service was done nicely and I was happy with the result."
+},
+
+{
+lang:"English",
+text:"The salon has a nice and comfortable atmosphere. Staff was polite and the service was good."
+},
+
+{
+lang:"English",
+text:"Great experience at Charming Beauty Care. The staff understood my requirements and did a good job."
+},
+
+{
+lang:"English",
+text:"I am happy with the service I received. The staff was friendly and professional."
+},
+
+{
+lang:"English",
+text:"Really good service and a pleasant salon environment. Overall, I had a nice experience."
+},
+
+{
+lang:"English",
+text:"My experience was very good. The service was professional and the staff was cooperative."
+},
+
+{
+lang:"English",
+text:"I visited Charming Beauty Care for the first time and had a nice experience. The staff was polite."
+},
+
+{
+lang:"English",
+text:"Good service, friendly staff and a comfortable environment. I had a positive experience."
+},
+
+{
+lang:"English",
+text:"I was happy with the service and the overall experience. Everything was handled nicely."
+},
+
+{
+lang:"English",
+text:"Nice salon with good service. The staff was caring and made me feel comfortable."
+},
+
+{
+lang:"English",
+text:"Had a pleasant experience at Charming Beauty Care. I liked the service and professional approach."
+},
+
+{
+lang:"English",
+text:"Really happy with my visit. The service was good and the staff was friendly and helpful."
+},
+
+
+/* HINGLISH */
+
+{
+lang:"Hinglish",
+text:"Charming Beauty Care mein mera experience really good raha. Staff friendly tha aur service bhi achhi lagi."
+},
+
+{
+lang:"Hinglish",
+text:"Salon ka ambience nice hai aur staff bhi polite hai. Overall experience kaafi good raha."
+},
+
+{
+lang:"Hinglish",
+text:"Service professional thi aur staff ne meri requirement ko properly samjha. Good experience overall."
+},
+
+{
+lang:"Hinglish",
+text:"First visit thi aur experience achha raha. Staff friendly aur cooperative tha."
+},
+
+{
+lang:"Hinglish",
+text:"Mujhe yahan ki service kaafi achhi lagi. Salon clean aur comfortable hai."
+},
+
+{
+lang:"Hinglish",
+text:"Overall experience very good raha. Staff ka behaviour achha tha aur service bhi nice thi."
+},
+
+{
+lang:"Hinglish",
+text:"Charming Beauty Care mein service lene ka experience achha raha. Staff helpful tha."
+},
+
+{
+lang:"Hinglish",
+text:"Salon ka environment comfortable hai aur service professional lagi. Overall happy with my visit."
+},
+
+{
+lang:"Hinglish",
+text:"Meri service achhe se ki gayi aur result bhi mujhe pasand aaya. Good experience."
+},
+
+{
+lang:"Hinglish",
+text:"Staff polite tha aur service ke time comfortable feel hua. Nice experience."
+}
+
 ];
 
-const optionsEl = document.getElementById("options");
-const reviewText = document.getElementById("reviewText");
-const moreBtn = document.getElementById("moreBtn");
-const resetBtn = document.getElementById("resetBtn");
-const copyBtn = document.getElementById("copyBtn");
-const clearBtn = document.getElementById("clearBtn");
-const statusEl = document.getElementById("status");
-const charCount = document.getElementById("charCount");
 
-let page = 0;
-let selectedIndex = 0;
+/* RANDOM REVIEWS */
 
-function showStatus(message, type) {
-  statusEl.textContent = message;
-  statusEl.className = "status show " + type;
+function getRandomReviews(){
+
+  let shuffled =
+    [...reviews].sort(
+      () => Math.random() - 0.5
+    );
+
+  return shuffled.slice(0,3);
 }
-function clearStatus() {
-  statusEl.textContent = "";
-  statusEl.className = "status";
+
+
+/* SHOW REVIEWS */
+
+function showReviews(){
+
+  const box =
+    document.getElementById("reviews");
+
+  box.innerHTML = "";
+
+  getRandomReviews().forEach(item => {
+
+    const card =
+      document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML = `
+
+      <div class="language">
+        ${item.lang}
+      </div>
+
+      <div class="review">
+        ${item.text}
+      </div>
+
+      <button
+        class="copy"
+        onclick="copyReview(this)"
+      >
+        📋 &nbsp; Review Copy करें
+      </button>
+
+    `;
+
+    box.appendChild(card);
+
+  });
+
 }
-function updateCount() {
-  charCount.textContent = String(reviewText.value.length);
+
+
+/* COPY */
+
+function copyReview(button){
+
+  const text =
+    button.parentElement
+    .querySelector(".review")
+    .innerText;
+
+  navigator.clipboard.writeText(text)
+
+  .then(() => {
+
+    button.innerText =
+      "✓ &nbsp; Copy हो गया";
+
+    setTimeout(() => {
+
+      button.innerText =
+        "📋 &nbsp; Review Copy करें";
+
+    },2000);
+
+  })
+
+  .catch(() => {
+
+    const textarea =
+      document.createElement("textarea");
+
+    textarea.value = text;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand("copy");
+
+    textarea.remove();
+
+    button.innerText =
+      "✓ &nbsp; Copy हो गया";
+
+    setTimeout(() => {
+
+      button.innerText =
+        "📋 &nbsp; Review Copy करें";
+
+    },2000);
+
+  });
+
 }
-function renderOptions() {
-  optionsEl.replaceChildren();
-  const start = page * 5;
-  const end = Math.min(start + 5, reviewIdeas.length);
 
-  for (let i = start; i < end; i++) {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "option" + (i === selectedIndex ? " selected" : "");
-    btn.setAttribute("aria-pressed", String(i === selectedIndex));
 
-    const label = document.createElement("small");
-    label.textContent = "Review idea " + (i + 1) + " of " + reviewIdeas.length;
-    const preview = document.createElement("span");
-    preview.textContent = reviewIdeas[i];
+/* INITIAL REVIEWS */
 
-    btn.append(label, preview);
-    btn.addEventListener("click", function () {
-      selectedIndex = i;
-      reviewText.value = reviewIdeas[i];
-      updateCount();
-      clearStatus();
-      renderOptions();
-    });
-    optionsEl.appendChild(btn);
-  }
+showReviews();
 
-  moreBtn.textContent =
-    end >= reviewIdeas.length ? "↻ Start Again" : "More Review Options →";
-}
-moreBtn.addEventListener("click", function () {
-  page = (page + 1) % Math.ceil(reviewIdeas.length / 5);
-  selectedIndex = page * 5;
-  reviewText.value = reviewIdeas[selectedIndex];
-  updateCount();
-  clearStatus();
-  renderOptions();
-});
-resetBtn.addEventListener("click", function () {
-  reviewText.value = reviewIdeas[selectedIndex];
-  updateCount();
-  clearStatus();
-});
-clearBtn.addEventListener("click", function () {
-  reviewText.value = "";
-  updateCount();
-  clearStatus();
-  reviewText.focus();
-});
-reviewText.addEventListener("input", function () {
-  updateCount();
-  clearStatus();
-});
-
-async function copyWithFallback(text) {
-  if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(text);
-    return;
-  }
-
-  const temporary = document.createElement("textarea");
-  temporary.value = text;
-  temporary.setAttribute("readonly", "");
-  temporary.style.position = "fixed";
-  temporary.style.left = "-9999px";
-  temporary.style.top = "0";
-  document.body.appendChild(temporary);
-  temporary.focus();
-  temporary.select();
-
-  let copied = false;
-  try {
-    copied = document.execCommand("copy");
-  } finally {
-    temporary.remove();
-  }
-  if (!copied) {
-    throw new Error("Automatic copy is unavailable");
-  }
-}
-copyBtn.addEventListener("click", async function () {
-  const text = reviewText.value.trim();
-  if (!text) {
-    showStatus("Please write your own review before copying.", "warn");
-    reviewText.focus();
-    return;
-  }
-  if (/\[[^\]]+\]/.test(text)) {
-    showStatus("Please replace the [bracketed prompts] with your real details before copying.", "warn");
-    reviewText.focus();
-    return;
-  }
-
-  copyBtn.disabled = true;
-  try {
-    await copyWithFallback(text);
-    showStatus("Review text copied. Now open Google Review and paste it there.", "ok");
-  } catch (error) {
-    showStatus("Automatic copy was blocked. Please select the text above, copy it manually, then open Google Review.", "warn");
-    reviewText.focus();
-    reviewText.select();
-  } finally {
-    copyBtn.disabled = false;
-  }
-});
-
-renderOptions();
-reviewText.value = reviewIdeas[0];
-updateCount();
 </script>
+
 </body>
 </html>
-
+```
