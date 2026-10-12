@@ -92,4 +92,291 @@ button:active,.google-link:active { transform:scale(.98); }
   width:100%;margin-top:12px;padding:16px;
   background:var(--wine);color:white;font-size:16px;
 }
-.notice
+.notice {
+  margin-top:14px;padding:12px;background:#fff9ee;
+  border:1px solid #efdfc1;border-radius:10px;
+  color:#735d40;font-size:12px;line-height:1.6;
+}
+.footer { text-align:center;color:var(--muted);font-size:12px;padding:22px 8px; }
+.toast {
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:#24131a;color:white;padding:12px 18px;
+  border-radius:24px;font-size:14px;display:none;
+  z-index:10;max-width:90%;text-align:center;
+}
+@media(max-width:420px) {
+  .page { padding:11px; }
+  .hero { padding:20px 12px; }
+  h1 { font-size:23px; }
+  .review { padding:12px; }
+  button { padding:11px 12px; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <img class="logo" src="charminglogo.png"
+         alt="Charming Beauty Care logo"
+         onerror="this.style.display='none'">
+    <h1>CHARMING BEAUTY CARE</h1>
+    <p>Ladies Beauty Parlour & Training Center</p>
+    <div class="stars">★★★★★</div>
+    <p>Your experience matters to us ❤️</p>
+  </header>
+
+  <section class="intro">
+    <h2>Share Your Experience</h2>
+    <p>अपनी पसंद का review चुनें, अपने अनुभव के अनुसार edit करें और copy करें।</p>
+  </section>
+
+  <div class="counter">
+    <span id="range">Reviews 1–5 of 100</span>
+    <span>Hindi • English • Hinglish</span>
+  </div>
+
+  <section id="reviews" aria-live="polite"></section>
+
+  <button class="main-button" id="more" type="button">
+    More Review Options ↓
+  </button>
+
+  <a class="google-link"
+     href="https://g.page/r/CbEnnOmKgF7GEAI/review"
+     target="_blank" rel="noopener noreferrer">
+    ⭐ Continue to Google Review
+  </a>
+
+  <div class="notice">
+    <strong>एक छोटी-सी बात:</strong> कृपया अपने वास्तविक अनुभव के अनुसार
+    review लिखें। Brackets [ ] में दी गई जगहों को अपनी जानकारी से बदलें।
+    Copy बटन तभी काम करेगा जब placeholders हटा दिए जाएँ।
+  </div>
+
+  <footer class="footer">
+    Charming Beauty Care • Bhopal
+  </footer>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const reviewBank = [
+{l:"Hinglish",t:"Maine [service] karwaya aur mera experience [experience] raha. Staff ka behaviour [behaviour] tha."},
+{l:"हिंदी",t:"मैंने यहाँ [service] करवाई। मेरा अनुभव [experience] रहा और मुझे खास तौर पर [what you liked] अच्छा लगा।"},
+{l:"English",t:"I visited for [service] and my experience was [experience]. I especially appreciated [what you liked]."},
+{l:"Hinglish",t:"Salon ka atmosphere [description] tha. [service] ke liye aayi thi aur [what you liked] mujhe achha laga."},
+{l:"हिंदी",t:"यहाँ [service] के लिए आई थी। स्टाफ ने [what they did] और मेरा अनुभव [experience] रहा।"},
+{l:"English",t:"The salon felt [description]. I came in for [service], and I liked [what you liked] about my visit."},
+{l:"Hinglish",t:"Mujhe [service] ki service [opinion] lagi. Staff ne [what they did], which made the visit [feeling]."},
+{l:"हिंदी",t:"[service] करवाने का मेरा अनुभव [experience] रहा। [specific detail] मुझे अच्छा लगा।"},
+{l:"English",t:"My visit for [service] was [experience]. The part I liked most was [specific detail]."},
+{l:"Hinglish",t:"Yahan [service] karwayi. Result [result] raha aur overall experience [experience] tha."},
+
+{l:"हिंदी",t:"मैंने [service] करवाई और [specific detail] मुझे पसंद आया। मेरा कुल अनुभव [experience] रहा।"},
+{l:"English",t:"I appreciated how the team handled [service]. The thing that stood out to me was [specific detail]."},
+{l:"Hinglish",t:"Staff ka nature [behaviour] tha aur [service] ke time mujhe [feeling] feel hua."},
+{l:"हिंदी",t:"सैलून में [service] के दौरान [what happened]। मुझे यह अनुभव [opinion] लगा।"},
+{l:"English",t:"For my [service], I found the staff [description]. I left feeling [feeling] because [reason]."},
+{l:"Hinglish",t:"Maine [service] try ki aur [what you liked] kaafi achha laga. Mere liye experience [experience] raha."},
+{l:"हिंदी",t:"यहाँ का माहौल [description] लगा। [service] के लिए आई थी और [specific detail] पसंद आया।"},
+{l:"English",t:"I had my [service] done here. What I liked most was [specific detail], and overall I felt [feeling]."},
+{l:"Hinglish",t:"[service] ke liye visit kiya tha. Staff ne [what they did] aur mera experience [experience] raha."},
+{l:"हिंदी",t:"मेरी [service] अच्छी रही। [specific detail] ने मेरे अनुभव को [description] बनाया।"},
+
+{l:"English",t:"The service I received was [opinion]. I appreciated [specific detail] during my visit."},
+{l:"Hinglish",t:"Salon ki cleanliness [opinion] lagi aur [service] ke dauran staff [behaviour] tha."},
+{l:"हिंदी",t:"[service] के दौरान मुझे [feeling] महसूस हुआ। [what you liked] मेरे लिए अच्छी बात रही।"},
+{l:"English",t:"I came in for [service] and liked [specific detail]. My overall impression was [impression]."},
+{l:"Hinglish",t:"Mera visit [experience] raha. [service] ke liye aayi thi aur [what you liked] achha laga."},
+{l:"हिंदी",t:"मुझे [service] के दौरान [specific detail] अच्छा लगा। स्टाफ का व्यवहार [behaviour] था।"},
+{l:"English",t:"The team was [behaviour] when I visited for [service]. I was happy with [specific detail]."},
+{l:"Hinglish",t:"[service] ka experience [experience] tha. Mujhe [specific detail] pasand aaya."},
+{l:"हिंदी",t:"यहाँ आने पर [what happened]। मेरी [service] का अनुभव [experience] रहा।"},
+{l:"English",t:"I liked the way [specific detail] was handled during my [service]. It made my visit feel [feeling]."},
+
+{l:"Hinglish",t:"Mujhe [service] ka result [opinion] laga. Staff ne [what they did], so I felt [feeling]."},
+{l:"हिंदी",t:"मैं [service] के लिए आई थी। [specific detail] मेरी उम्मीद के अनुसार [result] रहा।"},
+{l:"English",t:"My experience with [service] was [experience]. I would describe the staff as [description]."},
+{l:"Hinglish",t:"Yahan ka experience [experience] raha. [service] ke time [specific detail] achha laga."},
+{l:"हिंदी",t:"[service] करवाते समय [what happened]। इस वजह से मेरा अनुभव [experience] रहा।"},
+{l:"English",t:"What I appreciated about my [service] was [specific detail]. Overall, my visit was [experience]."},
+{l:"Hinglish",t:"Staff [behaviour] tha aur [service] ka process [description] laga. Overall, [experience]."},
+{l:"हिंदी",t:"यहाँ [service] करवाकर [feeling] महसूस हुआ। [specific detail] मुझे खास तौर पर पसंद आया।"},
+{l:"English",t:"The atmosphere was [description] during my visit. I came for [service] and felt [feeling]."},
+{l:"Hinglish",t:"Maine [service] karwayi. [what you liked] achha laga aur experience [experience] raha."},
+
+{l:"हिंदी",t:"मेरी [service] के दौरान [specific detail] अच्छा लगा। मैं अपने अनुभव को [opinion] कहूँगी।"},
+{l:"English",t:"I visited for [service] and found [specific detail] helpful. My overall experience was [experience]."},
+{l:"Hinglish",t:"[service] ke liye yahan aana [opinion] raha. Staff ka behaviour [behaviour] tha."},
+{l:"हिंदी",t:"सर्विस के समय [what happened]। [service] का मेरा अनुभव [experience] रहा।"},
+{l:"English",t:"The team made my visit for [service] feel [feeling]. I especially liked [specific detail]."},
+{l:"Hinglish",t:"Mujhe [specific detail] sabse achha laga. [service] ka experience [experience] raha."},
+{l:"हिंदी",t:"मैंने [service] करवाई। स्टाफ ने [what they did] और मुझे [feeling] महसूस हुआ।"},
+{l:"English",t:"I liked [specific detail] about my visit for [service]. The service felt [description] to me."},
+{l:"Hinglish",t:"Salon visit [experience] raha. [service] karwayi aur [specific detail] pasand aaya."},
+{l:"हिंदी",t:"[service] के लिए मेरा अनुभव [experience] रहा। [what you liked] एक अच्छी बात लगी।"},
+
+{l:"English",t:"I was pleased with [specific detail] during my [service]. My experience overall was [experience]."},
+{l:"Hinglish",t:"[service] ke time staff ne [what they did]. Isse mujhe [feeling] feel hua."},
+{l:"हिंदी",t:"यहाँ [service] करवाने के बाद मेरा अनुभव [experience] रहा। [specific detail] अच्छा लगा।"},
+{l:"English",t:"The staff's [quality] stood out during my visit for [service]. I felt [feeling] afterward."},
+{l:"Hinglish",t:"[service] ki service [opinion] lagi, especially [specific detail]. Overall visit [experience] tha."},
+{l:"हिंदी",t:"मेरी [service] के दौरान [specific detail] पर ध्यान दिया गया। मेरा अनुभव [experience] रहा।"},
+{l:"English",t:"I came in for [service] and appreciated [specific detail]. It was a [description] visit for me."},
+{l:"Hinglish",t:"Yahan [service] karwana [experience] raha. Staff [behaviour] tha aur [specific detail] achha laga."},
+{l:"हिंदी",t:"मुझे [service] में [specific detail] पसंद आया। कुल मिलाकर अनुभव [experience] रहा।"},
+{l:"English",t:"My visit was [experience]. I appreciated the way [specific detail] was handled for my [service]."},
+
+{l:"Hinglish",t:"Mera [service] ka experience [experience] tha. [specific detail] ki wajah se visit achha laga."},
+{l:"हिंदी",t:"[service] के लिए यहाँ आकर [feeling] लगा। [specific detail] मुझे अच्छा लगा।"},
+{l:"English",t:"I found the experience [description] when I visited for [service]. The highlight for me was [specific detail]."},
+{l:"Hinglish",t:"Staff ka behaviour [behaviour] tha. [service] ke liye visit karke experience [experience] raha."},
+{l:"हिंदी",t:"यहाँ [service] करवाई और [specific detail] अच्छा लगा। मेरा अनुभव [opinion] रहा।"},
+{l:"English",t:"During my [service], I appreciated [specific detail]. I would describe my visit as [description]."},
+{l:"Hinglish",t:"[service] ke liye aayi thi. [what you liked] achha laga aur staff [behaviour] tha."},
+{l:"हिंदी",t:"[service] करवाते समय स्टाफ ने [what they did]। इससे मेरा अनुभव [experience] रहा।"},
+{l:"English",t:"I liked [specific detail] and felt [feeling] during my appointment for [service]."},
+{l:"Hinglish",t:"Mere liye [service] ka experience [experience] raha, especially [specific detail]."},
+
+{l:"हिंदी",t:"[service] के लिए मेरा आना [experience] रहा। [specific detail] ने अच्छा प्रभाव छोड़ा।"},
+{l:"English",t:"I had my [service] done and appreciated [specific detail]. My visit felt [experience]."},
+{l:"Hinglish",t:"Salon ka environment [description] tha. [service] ke liye visit karke [feeling] feel hua."},
+{l:"हिंदी",t:"मुझे [service] के दौरान [what you liked] पसंद आया। मेरा अनुभव [experience] रहा।"},
+{l:"English",t:"The experience was [experience] for my [service]. I particularly liked [specific detail]."},
+{l:"Hinglish",t:"[service] karwayi aur overall experience [experience] raha. [specific detail] achha laga."},
+{l:"हिंदी",t:"मैं [service] के लिए आई थी। स्टाफ [behaviour] था और [specific detail] अच्छा लगा।"},
+{l:"English",t:"I appreciated [specific detail] during my visit for [service]. It made the experience [description]."},
+{l:"Hinglish",t:"Yahan [service] karwana [opinion] raha. Staff ne [what they did] aur visit achha raha."},
+{l:"हिंदी",t:"[service] के दौरान [specific detail] मेरी पसंद का हिस्सा रहा। कुल अनुभव [experience] था।"},
+
+{l:"English",t:"I visited for [service] and was happy with [specific detail]. The experience felt [description]."},
+{l:"Hinglish",t:"Mujhe [service] ka result [result] laga. Staff ka behaviour [behaviour] tha."},
+{l:"हिंदी",t:"मेरी [service] अच्छी रही क्योंकि [specific detail]। मेरा अनुभव [experience] रहा।"},
+{l:"English",t:"My visit for [service] went [description]. I especially valued [specific detail]."},
+{l:"Hinglish",t:"[service] ke liye visit kiya. [specific detail] pasand aaya aur overall [experience] raha."},
+{l:"हिंदी",t:"[service] करवाने पर [result] मिला। [specific detail] मेरे लिए अच्छा रहा।"},
+{l:"English",t:"The team was [behaviour] during my [service]. I left feeling [feeling] about the experience."},
+{l:"Hinglish",t:"Maine [service] karwayi aur [specific detail] achha laga. Mere liye visit [experience] raha."},
+{l:"हिंदी",t:"यहाँ [service] का अनुभव [experience] रहा। [specific detail] की वजह से मुझे अच्छा लगा।"},
+{l:"English",t:"I appreciated [specific detail] at my appointment for [service]. Overall, it was [experience]."}
+];
+
+const PAGE_SIZE = 5;
+let page = 0;
+const reviewsEl = document.getElementById("reviews");
+const rangeEl = document.getElementById("range");
+const moreBtn = document.getElementById("more");
+const toastEl = document.getElementById("toast");
+
+function showToast(message) {
+  toastEl.textContent = message;
+  toastEl.style.display = "block";
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => toastEl.style.display = "none", 2300);
+}
+
+function render() {
+  const start = page * PAGE_SIZE;
+  const items = reviewBank.slice(start, start + PAGE_SIZE);
+  reviewsEl.innerHTML = "";
+
+  items.forEach((item, offset) => {
+    const index = start + offset;
+    const card = document.createElement("article");
+    card.className = "review";
+
+    const top = document.createElement("div");
+    top.className = "review-top";
+
+    const number = document.createElement("span");
+    number.className = "review-number";
+    number.textContent = "Review " + (index + 1);
+
+    const language = document.createElement("span");
+    language.className = "lang";
+    language.textContent = item.l;
+
+    top.append(number, language);
+
+    const area = document.createElement("textarea");
+    area.setAttribute("aria-label", "Edit review " + (index + 1));
+    area.value = item.t;
+    area.placeholder = "अपना वास्तविक अनुभव यहाँ लिखें…";
+
+    const hint = document.createElement("p");
+    hint.className = "hint";
+    hint.textContent = "Edit this text to match your real experience before copying.";
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    const copy = document.createElement("button");
+    copy.type = "button";
+    copy.className = "copy";
+    copy.textContent = "📋 Copy Review";
+
+    const restore = document.createElement("button");
+    restore.type = "button";
+    restore.className = "reset";
+    restore.textContent = "Reset";
+
+    function validate() {
+      const hasPlaceholder = /\[[^\]]+\]/.test(area.value);
+      copy.disabled = hasPlaceholder || area.value.trim().length < 12;
+      copy.title = hasPlaceholder
+        ? "पहले सभी [brackets] वाली जगह भरें"
+        : "Copy your edited review";
+    }
+
+    area.addEventListener("input", validate);
+
+    copy.addEventListener("click", async () => {
+      if (copy.disabled) return;
+      try {
+        await navigator.clipboard.writeText(area.value.trim());
+        showToast("Review copied! अब Google पर जाकर पोस्ट करें।");
+      } catch (e) {
+        area.focus();
+        area.select();
+        const ok = document.execCommand("copy");
+        showToast(ok ? "Review copied!" : "Text select हो गया है—Copy दबाएँ।");
+      }
+    });
+
+    restore.addEventListener("click", () => {
+      area.value = item.t;
+      validate();
+      showToast("Original starter restored");
+    });
+
+    actions.append(copy, restore);
+    card.append(top, area, hint, actions);
+    reviewsEl.appendChild(card);
+    validate();
+  });
+
+  const end = Math.min(start + items.length, reviewBank.length);
+  rangeEl.textContent = "Reviews " + (start + 1) + "–" + end +
+                        " of " + reviewBank.length;
+
+  if (end >= reviewBank.length) {
+    moreBtn.textContent = "Start Again ↻";
+  } else {
+    moreBtn.textContent = "More Review Options ↓";
+  }
+}
+
+moreBtn.addEventListener("click", () => {
+  if ((page + 1) * PAGE_SIZE >= reviewBank.length) {
+    page = 0;
+  } else {
+    page++;
+  }
+  render();
+  window.scrollTo({top:document.querySelector(".counter").offsetTop - 12,behavior:"smooth"});
+});
+
+render();
+</script>
+</body>
+</html>
