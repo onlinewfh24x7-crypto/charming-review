@@ -1,712 +1,673 @@
-
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#350d18">
-<meta name="description" content="Charming Beauty Care Bhopal — Share your genuine salon experience.">
-<title>Charming Beauty Care | Smart Review Page</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Charming Beauty Care — Review</title>
 
 <style>
-:root {
+:root{
   --wine:#5a0b2b;
-  --wine-dark:#350d18;
-  --wine-light:#7a1f45;
+  --wine2:#7a1f45;
   --gold:#d6b36a;
+  --gold2:#f1d99b;
   --cream:#fff8ee;
+  --white:#ffffff;
   --text:#321d27;
-  --muted:#75616a;
 }
-* { box-sizing:border-box; }
-body {
+
+*{
+  box-sizing:border-box;
+}
+
+body{
   margin:0;
-  padding:16px 10px;
   min-height:100vh;
+  font-family:Arial,"Noto Sans",sans-serif;
   color:var(--text);
-  font-family:"Montserrat","Noto Sans Devanagari",sans-serif;
+
   background:
-    linear-gradient(rgba(45,7,22,.76),rgba(45,7,22,.86)),
+    linear-gradient(
+      rgba(53,7,25,.70),
+      rgba(53,7,25,.82)
+    ),
     url("salon-bg.jpg") center/cover fixed no-repeat;
+
+  padding:20px 12px;
 }
-button,textarea { font:inherit; }
-button { cursor:pointer; }
-button:focus-visible,textarea:focus-visible {
-  outline:3px solid var(--gold);
-  outline-offset:3px;
-}
-.page { max-width:680px; margin:auto; }
-.panel {
-  overflow:hidden;
-  border:1px solid var(--gold);
-  border-radius:23px;
-  background:var(--cream);
-  box-shadow:0 20px 55px #0005;
-}
-.hero {
-  padding:27px 18px 24px;
-  text-align:center;
-  color:white;
-  background:linear-gradient(135deg,#65152f,#350d18);
-  border-bottom:3px solid var(--gold);
-}
-.logo-box {
-  width:96px;
-  height:96px;
-  padding:4px;
-  margin:0 auto 12px;
-  border:2px solid var(--gold);
-  border-radius:50%;
-  background:white;
-}
-.logo {
+
+.container{
   width:100%;
-  height:100%;
+  max-width:620px;
+  margin:auto;
+}
+
+.card{
+  background:rgba(255,248,238,.96);
+  border:1px solid rgba(214,179,106,.75);
+  border-radius:28px;
+  padding:28px 20px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35),
+    0 0 0 1px rgba(255,255,255,.15);
+}
+
+/* LOGO */
+.logo-box{
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.logo{
+  width:105px;
+  height:105px;
   object-fit:contain;
   border-radius:50%;
+  background:#fff;
+  padding:5px;
+  border:3px solid var(--gold);
+  box-shadow:0 5px 20px rgba(0,0,0,.18);
 }
-.brand {
-  margin:0;
-  color:var(--gold);
-  font-family:"Cormorant Garamond",serif;
-  font-size:clamp(31px,7vw,43px);
-  line-height:1.1;
-}
-.tagline {
-  margin-top:9px;
-  font-size:11px;
-  letter-spacing:1.7px;
-}
-.stars { margin-top:12px; color:var(--gold); letter-spacing:4px; }
-.content { padding:23px 18px 25px; }
-.intro {
-  margin:0 auto 21px;
+
+/* BRAND */
+.brand{
   text-align:center;
-  font-size:13px;
-  line-height:1.9;
 }
-.section-title {
-  margin:22px 0 12px;
+
+.brand h1{
+  margin:5px 0 3px;
   color:var(--wine);
-  font-family:"Cormorant Garamond",serif;
   font-size:27px;
+  letter-spacing:.3px;
 }
-.language-options {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:8px;
+
+.tagline{
+  color:#8a5d3d;
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:1.5px;
 }
-.lang-btn {
-  padding:12px 5px;
-  border:1px solid var(--wine);
-  border-radius:10px;
-  background:white;
+
+/* DIVIDER */
+.divider{
+  width:75px;
+  height:3px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  margin:16px auto;
+}
+
+/* TITLE */
+.main-title{
+  text-align:center;
   color:var(--wine);
-  font-weight:700;
-  font-size:12px;
+  font-size:23px;
+  margin:5px 0 8px;
 }
-.lang-btn.active {
-  color:white;
-  background:var(--wine);
-  box-shadow:0 4px 12px #5a0b2b25;
-}
-.counter {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  margin:18px 0 12px;
-  font-size:12px;
-  color:var(--muted);
-}
-.counter strong { color:var(--wine); }
-.review-list { display:grid; gap:13px; }
-.review-card {
-  padding:14px;
-  border:1px solid #e6d1ba;
-  border-left:4px solid var(--gold);
-  border-radius:13px;
-  background:#fffdf9;
-  box-shadow:0 4px 13px #5a0b2b09;
-}
-.review-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-  margin-bottom:10px;
-}
-.review-label {
-  color:var(--wine);
-  font-size:11px;
-  font-weight:700;
-}
-.edit-hint {
-  color:var(--muted);
-  font-size:10px;
-}
-.review-input {
-  display:block;
-  width:100%;
-  min-height:112px;
-  padding:12px;
-  resize:vertical;
-  border:1px solid #e7d9cd;
-  border-radius:9px;
-  background:white;
-  color:var(--text);
+
+.subtitle{
+  text-align:center;
+  color:#6e5961;
   font-size:14px;
-  line-height:1.85;
+  line-height:1.5;
+  margin:0 auto 20px;
+  max-width:480px;
 }
-.review-actions {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
-  margin-top:10px;
+
+/* REVIEW CARDS */
+.review-card{
+  background:linear-gradient(
+    145deg,
+    #fffdf9,
+    #fff5e8
+  );
+
+  border:1px solid rgba(214,179,106,.60);
+  border-left:5px solid var(--gold);
+
+  border-radius:18px;
+  padding:16px 15px;
+  margin:12px 0;
+
+  box-shadow:0 6px 18px rgba(90,11,43,.08);
 }
-.action-btn {
-  min-height:42px;
-  padding:10px 8px;
-  border-radius:9px;
-  font-size:12px;
-  font-weight:700;
+
+.review-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:bold;
+  color:white;
+  background:var(--wine);
+  padding:5px 9px;
+  border-radius:20px;
+  margin-bottom:9px;
 }
-.copy-btn {
-  border:1px solid var(--wine);
+
+.review-text{
+  font-size:15px;
+  line-height:1.6;
+  color:#38242c;
+}
+
+/* BUTTONS */
+button{
+  width:100%;
+  border:none;
+  border-radius:14px;
+  padding:14px 16px;
+  margin-top:9px;
+
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+
+  transition:.2s ease;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+.copy-btn{
   background:var(--wine);
   color:white;
 }
-.copy-btn:hover { background:var(--wine-light); }
-.reset-btn {
-  border:1px solid var(--gold);
-  background:#fff2d8;
-  color:var(--wine);
+
+.copy-btn:hover{
+  background:var(--wine2);
 }
-.main-btn {
-  width:100%;
-  min-height:48px;
-  margin-top:12px;
-  padding:13px;
-  border:1px solid var(--gold);
-  border-radius:10px;
+
+.more-btn{
   background:#f0dfbc;
   color:var(--wine);
-  font-size:13px;
-  font-weight:700;
-}
-.main-btn:hover { filter:brightness(.97); }
-.google-box {
-  margin-top:24px;
-  padding:20px 14px;
   border:1px solid var(--gold);
-  border-radius:13px;
-  text-align:center;
-  background:linear-gradient(145deg,#fffaf0,#f7e8dc);
 }
-.google-box h2 {
-  margin:0 0 8px;
+
+.google-btn{
+  background:#fff;
   color:var(--wine);
-  font-family:"Cormorant Garamond",serif;
-  font-size:29px;
+  border:2px solid var(--gold);
 }
-.google-box p {
+
+.google-btn:hover{
+  background:#fff8ea;
+}
+
+/* NOTE */
+.note{
+  margin-top:18px;
+  background:#fff4d9;
+  border:1px solid #ead29c;
+  border-radius:15px;
+  padding:13px;
   font-size:12px;
-  line-height:1.8;
+  line-height:1.5;
+  color:#624c32;
+  text-align:center;
 }
-.google-btn {
-  display:block;
-  width:100%;
-  margin-top:14px;
-  padding:15px 10px;
-  border-radius:9px;
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px solid rgba(214,179,106,.45);
+}
+
+.footer strong{
+  color:var(--wine);
+}
+
+.contact{
+  margin-top:8px;
+  font-size:12px;
+  line-height:1.6;
+  color:#6c5960;
+}
+
+.ladies{
+  display:inline-block;
+  margin-top:8px;
+  color:var(--wine);
+  font-weight:bold;
+  font-size:12px;
+  letter-spacing:.8px;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(20px);
+
   background:var(--wine);
   color:white;
-  text-decoration:none;
+
+  padding:11px 18px;
+  border-radius:30px;
+
   font-size:13px;
-  font-weight:700;
-}
-.note {
-  margin-top:13px;
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.8;
-}
-.footer {
-  padding:18px 12px;
-  border-top:1px solid #ead9c9;
-  text-align:center;
-  background:#fff5e9;
-}
-.footer strong {
-  color:var(--wine);
-  font-family:"Cormorant Garamond",serif;
-  font-size:23px;
-}
-.footer p {
-  margin:7px 0;
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.8;
-}
-.footer a { color:var(--wine); font-weight:700; }
-.toast {
-  position:fixed;
-  z-index:10;
-  bottom:20px;
-  left:50%;
-  width:max-content;
-  max-width:calc(100% - 28px);
-  padding:12px 18px;
-  border:1px solid var(--gold);
-  border-radius:25px;
-  background:var(--wine-dark);
-  color:white;
-  font-size:12px;
-  text-align:center;
-  box-shadow:0 6px 25px #0004;
+  font-weight:bold;
+
   opacity:0;
   pointer-events:none;
-  transform:translate(-50%,12px);
-  transition:opacity .2s,transform .2s;
+  transition:.3s ease;
+
+  box-shadow:0 8px 25px rgba(0,0,0,.3);
+  z-index:999;
 }
-.toast.show {
+
+.toast.show{
   opacity:1;
-  transform:translate(-50%,0);
+  transform:translateX(-50%) translateY(0);
 }
-@media(max-width:420px) {
-  body { padding:8px 5px; background-attachment:scroll; }
-  .panel { border-radius:17px; }
-  .content { padding:19px 11px; }
-  .hero { padding:24px 10px; }
-  .review-card { padding:11px; }
-  .edit-hint { font-size:9px; }
-  .review-input { font-size:13px; }
-}
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after { transition:none!important; }
+
+@media(max-width:480px){
+
+  body{
+    padding:12px 8px;
+  }
+
+  .card{
+    padding:23px 14px;
+    border-radius:23px;
+  }
+
+  .logo{
+    width:90px;
+    height:90px;
+  }
+
+  .brand h1{
+    font-size:24px;
+  }
+
+  .main-title{
+    font-size:21px;
+  }
+
+  .review-text{
+    font-size:14px;
+  }
 }
 </style>
 </head>
 
 <body>
-<main class="page">
-<div class="panel">
 
-<header class="hero">
-  <div class="logo-box">
-    <img class="logo" src="charminglogo.png" alt="Charming Beauty Care logo">
-  </div>
-  <h1 class="brand">Charming Beauty Care</h1>
-  <div class="tagline">LADIES BEAUTY PARLOUR &amp; TRAINING CENTER</div>
-  <div class="stars" aria-label="Decorative stars">★★★★★</div>
-  <div style="font-size:12px;margin-top:5px">Arera Colony • Bhopal</div>
-</header>
+<div class="container">
 
-<section class="content">
-  <p class="intro">
-    आपकी अपनी राय हमारे लिए महत्वपूर्ण है।<br>
-    अपने वास्तविक अनुभव से मेल खाने वाला review चुनें और जरूरत के अनुसार edit करें।
-  </p>
+  <div class="card">
 
-  <h2 class="section-title">1. Choose Language</h2>
-  <div class="language-options" role="group" aria-label="Review language">
-    <button type="button" class="lang-btn active" data-language="hi" aria-pressed="true">हिंदी</button>
-    <button type="button" class="lang-btn" data-language="en" aria-pressed="false">English</button>
-    <button type="button" class="lang-btn" data-language="hinglish" aria-pressed="false">Hinglish</button>
-  </div>
-
-  <h2 class="section-title">2. Select &amp; Edit Review</h2>
-  <p style="font-size:12px;line-height:1.8;color:#75616a">
-    हर review को नीचे edit कर सकते हैं। Copy बटन केवल उसी review को कॉपी करेगा।
-  </p>
-
-  <div class="counter">
-    <span id="language-count">हिंदी: 34 विकल्प</span>
-    <span id="shown-count">दिखाए गए: 0</span>
-  </div>
-
-  <div id="reviews" class="review-list" aria-live="polite"></div>
-
-  <button type="button" class="main-btn" id="more-btn">✨ More Review Options</button>
-
-  <button type="button" class="main-btn" id="restart-btn">
-    ↻ नए क्रम से Review विकल्प दिखाएँ
-  </button>
-
-  <section class="google-box">
-    <h2>Share Your Experience</h2>
-    <p>
-      Review कॉपी करने के बाद Google खोलें और अपनी ईमानदार राय पोस्ट करें।
-    </p>
-    <a class="google-btn"
-       href="https://g.page/r/CbEnnOmKgF7GEAI/review"
-       target="_blank"
-       rel="noopener noreferrer">
-      ⭐ Write Review on Google ↗
-    </a>
-    <div class="note">
-      कृपया केवल वही बात लिखें जो आपके वास्तविक अनुभव को दर्शाती हो।
-      Review देना आपकी इच्छा पर निर्भर है।
+    <!-- LOGO -->
+    <div class="logo-box">
+      <img
+        src="charminglogo.png"
+        alt="Charming Beauty Care Logo"
+        class="logo"
+      >
     </div>
-  </section>
-</section>
 
-<footer class="footer">
-  <strong>Charming Beauty Care</strong>
-  <p> Ladies Beauty Parlour &amp; Training Center</p>
-  <p>E-6/95, Flat No. 1, Shalimar Homes,<br>Arera Colony, Bhopal</p>
-  <p><a href="tel:9826246652">Call: 9826246652</a></p>
-  <p>BEAUTY • CARE • CONFIDENCE</p>
-</footer>
+    <!-- BRAND -->
+    <div class="brand">
+      <h1>Charming Beauty Care</h1>
+      <div class="tagline">
+        LADIES ONLY • BHOPAL
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TITLE -->
+    <h2 class="main-title">
+      Share Your Experience 💛
+    </h2>
+
+    <p class="subtitle">
+      नीचे दिए गए options में से अपने अनुभव से सबसे मिलता-जुलता review चुनें।
+      चाहें तो इसे अपने अनुभव के अनुसार edit भी कर सकती हैं।
+    </p>
+
+    <!-- REVIEWS -->
+    <div id="reviews"></div>
+
+    <!-- BUTTONS -->
+    <button class="copy-btn" onclick="copyReviews()">
+      📋 Copy Selected Reviews
+    </button>
+
+    <button class="more-btn" onclick="showReviews()">
+      ✨ More Review Options
+    </button>
+
+    <button class="google-btn" onclick="openGoogleReview()">
+      ⭐ Write Review on Google
+    </button>
+
+    <!-- HONEST REVIEW NOTE -->
+    <div class="note">
+      💛 <strong>Your honest experience matters.</strong><br>
+      कृपया review को अपने वास्तविक अनुभव के अनुसार edit करके ही Google पर submit करें।
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+      <strong>Charming Beauty Care</strong>
+
+      <div class="contact">
+        E-6/95, Flat No. 1, Shalimar Homes,<br>
+        Arera Colony, Bhopal<br>
+        📞 9826246652
+      </div>
+
+      <div class="ladies">
+        ✨ BEAUTY • CARE • CONFIDENCE ✨
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
-</main>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="toast" id="toast">
+  Review copied! 💛
+</div>
 
 <script>
-"use strict";
 
-/*
-  100 review examples:
-  Hindi 34 + English 33 + Hinglish 33 = 100.
-  These are editable examples, not verified customer testimonials.
-*/
+const reviews = [
 
-const reviewBank = {
-hi: [
-"Charming Beauty Care में मेरा अनुभव अच्छा रहा। मुझे मिली सर्विस से मैं संतुष्ट हूँ।",
-"यहाँ का माहौल साफ-सुथरा और आरामदायक लगा।",
-"स्टाफ ने मेरी बात ध्यान से सुनी और अच्छे से मार्गदर्शन किया।",
-"मेरी सर्विस अच्छे तरीके से की गई और मेरा अनुभव सकारात्मक रहा।",
-"मुझे यहाँ का व्यवहार विनम्र और सहयोगपूर्ण लगा।",
-"Charming Beauty Care में मुझे अच्छा अनुभव मिला।",
-"सैलून में साफ-सफाई का ध्यान रखा गया था।",
-"स्टाफ ने सर्विस के बारे में जानकारी दी, जिससे मुझे निर्णय लेने में मदद मिली।",
-"मेरे अनुभव के अनुसार यहाँ की सर्विस अच्छी रही।",
-"मुझे यहाँ का वातावरण अच्छा और सहज लगा।",
-"मैंने जो सर्विस ली, उसके परिणाम से मैं संतुष्ट हूँ।",
-"स्टाफ ने मेरी जरूरत समझकर उसके अनुसार सर्विस दी।",
-"यहाँ बातचीत का तरीका विनम्र और सम्मानजनक लगा।",
-"मेरी अपॉइंटमेंट के दौरान अनुभव आरामदायक रहा।",
-"सर्विस के दौरान मेरी पसंद और जरूरत का ध्यान रखा गया।",
-"मुझे यहाँ अपनी सर्विस के बारे में स्पष्ट जानकारी मिली।",
-"मेरे लिए सैलून का अनुभव अच्छा और सुविधाजनक रहा।",
-"मैंने यहाँ अच्छी सर्विस का अनुभव किया।",
-"स्टाफ का व्यवहार मेरे अनुभव में अच्छा रहा।",
-"यहाँ का वातावरण शांत और आरामदायक लगा।",
-"मेरी सर्विस के दौरान साफ-सफाई का ध्यान रखा गया।",
-"सर्विस से पहले मुझे जरूरी जानकारी दी गई।",
-"मुझे यहाँ अपने सवाल पूछने और जवाब पाने में आसानी हुई।",
-"मेरा अनुभव अच्छा रहा और मुझे सही तरीके से सहायता मिली।",
-"यहाँ मेरी जरूरत के अनुसार सर्विस पर ध्यान दिया गया।",
-"मुझे यहाँ का काम करने का तरीका अच्छा लगा।",
-"सैलून में मेरा स्वागत अच्छे तरीके से किया गया।",
-"मेरे अनुभव में स्टाफ सहयोगी और विनम्र था।",
-"मैं अपनी सर्विस के अनुभव से संतुष्ट हूँ।",
-"यहाँ मुझे आराम से अपनी पसंद बताने का मौका मिला।",
-"सर्विस के दौरान मेरी सुविधा का ध्यान रखा गया।",
-"मुझे यहाँ की सर्विस के बारे में अच्छी जानकारी मिली।",
-"Charming Beauty Care में मेरा अनुभव मेरी उम्मीदों के अनुसार रहा।",
-"मेरे अनुभव में यहाँ का व्यवहार और सर्विस संतोषजनक रहे।"
-],
-en: [
-"I had a good experience at Charming Beauty Care.",
-"The salon felt clean and comfortable during my visit.",
-"The staff listened to my requirements and guided me clearly.",
-"I was satisfied with the service I received.",
-"The staff was polite and helpful during my visit.",
-"My overall experience at the salon was positive.",
-"I appreciated the attention to cleanliness.",
-"The service options were explained to me clearly.",
-"My experience with the service was good.",
-"I found the salon atmosphere comfortable.",
-"I was happy with the result of the service I received.",
-"The staff took time to understand my needs.",
-"The communication was polite and respectful.",
-"My appointment experience was comfortable.",
-"My preferences were considered during the service.",
-"I received useful information before choosing a service.",
-"My visit was pleasant and convenient.",
-"I had a positive experience with the service.",
-"The staff behaviour was good during my visit.",
-"The salon environment felt calm and welcoming.",
-"Cleanliness was maintained during my service.",
-"I received clear information about the service.",
-"My questions were answered helpfully.",
-"I felt supported throughout my appointment.",
-"The service was focused on my requirements.",
-"I liked the way the service was handled.",
-"I received a warm welcome at the salon.",
-"The staff was courteous and cooperative.",
-"I am satisfied with my salon experience.",
-"I had the opportunity to explain my preferences.",
-"My comfort was considered during the appointment.",
-"The service information was helpful.",
-"My experience was in line with my expectations.",
-"Overall, I had a satisfactory visit to Charming Beauty Care."
-],
-hinglish: [
-"Charming Beauty Care mein mera experience achha raha.",
-"Salon clean aur comfortable laga.",
-"Staff ne meri requirements ko achhe se samjha.",
-"Mujhe mili service se main satisfied hoon.",
-"Staff ka behaviour polite aur helpful laga.",
-"Overall salon ka experience positive raha.",
-"Yahan cleanliness ka dhyan rakha gaya tha.",
-"Service ke options mujhe clearly explain kiye gaye.",
-"Mera service experience achha raha.",
-"Salon ka atmosphere comfortable laga.",
-"Jo service li uske result se main satisfied hoon.",
-"Staff ne meri needs samajhne ki koshish ki.",
-"Yahan communication polite aur respectful tha.",
-"Appointment ke time experience comfortable raha.",
-"Service ke dauran meri preferences ka dhyan rakha gaya.",
-"Service choose karne se pehle useful information mili.",
-"Salon visit pleasant aur convenient raha.",
-"Mujhe service ka experience achha laga.",
-"Staff ka behaviour friendly aur polite tha.",
-"Salon ka environment calm aur welcoming laga.",
-"Service ke time cleanliness maintain thi.",
-"Mujhe service ke baare mein clear information mili.",
-"Mere questions ka helpful answer mila.",
-"Appointment ke dauran mujhe proper support mila.",
-"Service meri requirements ke according thi.",
-"Yahan service handle karne ka tareeka achha laga.",
-"Salon mein welcome achhe tareeke se kiya gaya.",
-"Staff courteous aur cooperative laga.",
-"Main apne salon experience se satisfied hoon.",
-"Mujhe apni preferences explain karne ka chance mila.",
-"Appointment ke dauran meri comfort ka dhyan rakha gaya.",
-"Service information helpful thi.",
-"Mera experience meri expectations ke according raha."
-]
-};
+/* HINDI */
 
-const languageNames = {
-  hi: "हिंदी",
-  en: "English",
-  hinglish: "Hinglish"
-};
+{
+  lang:"हिंदी",
+  text:"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Staff बहुत अच्छे से बात करते हैं और service भी बहुत अच्छी मिली।"
+},
 
-const batchSize = 5;
-let currentLanguage = "hi";
-let order = [];
-let position = 0;
-let batchNumber = 0;
-let toastTimer;
+{
+  lang:"हिंदी",
+  text:"Salon का माहौल बहुत अच्छा और साफ-सुथरा है। Service quality मुझे बहुत पसंद आई।"
+},
 
-const reviewsEl = document.getElementById("reviews");
-const moreBtn = document.getElementById("more-btn");
-const restartBtn = document.getElementById("restart-btn");
-const languageCount = document.getElementById("language-count");
-const shownCount = document.getElementById("shown-count");
-const toastEl = document.getElementById("toast");
+{
+  lang:"हिंदी",
+  text:"मैंने यहाँ beauty service ली और मेरा experience बहुत अच्छा रहा। Staff friendly और professional हैं।"
+},
 
-function shuffle(items) {
-  const result = [...items];
+{
+  lang:"हिंदी",
+  text:"Charming Beauty Care की service से मैं काफी satisfied हूँ। काम बहुत अच्छे तरीके से किया गया।"
+},
 
-  for (let i = result.length - 1; i > 0; i--) {
+{
+  lang:"हिंदी",
+  text:"बहुत अच्छा salon है। Staff का behaviour अच्छा है और service भी काफी अच्छी लगी।"
+},
+
+{
+  lang:"हिंदी",
+  text:"मेरा यहाँ का overall experience अच्छा रहा। Salon साफ-सुथरा है और service अच्छी है।"
+},
+
+{
+  lang:"हिंदी",
+  text:"Service लेने के बाद मुझे result काफी अच्छा लगा। Staff ने मेरी जरूरत को अच्छे से समझा।"
+},
+
+{
+  lang:"हिंदी",
+  text:"बहुत अच्छा अनुभव रहा। काम में सफाई और professionalism दिखाई दिया।"
+},
+
+{
+  lang:"हिंदी",
+  text:"Charming Beauty Care में service अच्छी quality की मिली। मैं अपने अनुभव से खुश हूँ।"
+},
+
+{
+  lang:"हिंदी",
+  text:"Salon का environment comfortable है और staff का behaviour भी बहुत अच्छा लगा।"
+},
+
+/* ENGLISH */
+
+{
+  lang:"English",
+  text:"I had a very good experience at Charming Beauty Care. The staff was friendly and professional."
+},
+
+{
+  lang:"English",
+  text:"Really nice salon with a clean and comfortable environment. I was happy with the service."
+},
+
+{
+  lang:"English",
+  text:"I had a great experience here. The staff understood my requirements and provided good service."
+},
+
+{
+  lang:"English",
+  text:"Very good service and a pleasant atmosphere. Overall, I had a positive experience."
+},
+
+{
+  lang:"English",
+  text:"Loved the service at Charming Beauty Care. The staff was polite, professional and helpful."
+},
+
+{
+  lang:"English",
+  text:"A nice place for beauty services. I liked the quality of service and the overall experience."
+},
+
+{
+  lang:"English",
+  text:"Very happy with my experience. The salon was clean and the service was done professionally."
+},
+
+{
+  lang:"English",
+  text:"Good service, friendly staff and a comfortable salon environment. I had a nice experience."
+},
+
+{
+  lang:"English",
+  text:"My experience at Charming Beauty Care was really good. I was satisfied with the service."
+},
+
+{
+  lang:"English",
+  text:"A pleasant experience overall. The staff was courteous and the service was good."
+},
+
+/* HINGLISH */
+
+{
+  lang:"Hinglish",
+  text:"Charming Beauty Care mein mera experience really good raha. Staff friendly hain aur service bhi achhi hai."
+},
+
+{
+  lang:"Hinglish",
+  text:"Salon ka environment clean aur comfortable hai. Service lene ke baad mujhe kaafi achha laga."
+},
+
+{
+  lang:"Hinglish",
+  text:"Service quality mujhe bahut achhi lagi. Staff polite aur professional hain."
+},
+
+{
+  lang:"Hinglish",
+  text:"Overall experience bahut nice raha. Staff ne meri requirement ko properly samjha."
+},
+
+{
+  lang:"Hinglish",
+  text:"Good service and very nice experience. Salon ka atmosphere bhi comfortable hai."
+},
+
+{
+  lang:"Hinglish",
+  text:"Mujhe yahan ki service pasand aayi. Staff ka behaviour bhi very good tha."
+},
+
+{
+  lang:"Hinglish",
+  text:"Charming Beauty Care mein service ka experience kaafi achha raha. I am happy with the result."
+},
+
+{
+  lang:"Hinglish",
+  text:"Salon clean hai aur staff bhi friendly hai. Overall experience very good raha."
+}
+
+];
+
+
+/* SHUFFLE */
+
+function shuffle(array){
+
+  let arr = [...array];
+
+  for(let i = arr.length - 1; i > 0; i--){
+
     const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
+
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+
   }
 
-  return result;
+  return arr;
 }
 
-function showToast(message) {
-  toastEl.textContent = message;
-  toastEl.classList.add("show");
-  clearTimeout(toastTimer);
 
-  toastTimer = setTimeout(() => {
-    toastEl.classList.remove("show");
-  }, 2400);
+/* SHOW 3 REVIEWS */
+
+function showReviews(){
+
+  const selected = shuffle(reviews).slice(0,3);
+
+  const container = document.getElementById("reviews");
+
+  container.innerHTML = "";
+
+  selected.forEach((review,index)=>{
+
+    const card = document.createElement("div");
+
+    card.className = "review-card";
+
+    card.innerHTML = `
+      <span class="review-label">
+        ${review.lang} • Option ${index + 1}
+      </span>
+
+      <div
+        class="review-text"
+        contenteditable="true"
+        spellcheck="true"
+      >
+        ${review.text}
+      </div>
+    `;
+
+    container.appendChild(card);
+
+  });
+
 }
 
-function updateCounts() {
-  languageCount.textContent =
-    `${languageNames[currentLanguage]}: ${reviewBank[currentLanguage].length} विकल्प`;
 
-  shownCount.textContent = `दिखाए गए: ${position}/${order.length}`;
+/* COPY REVIEWS */
 
-  moreBtn.disabled = position >= order.length;
-  moreBtn.textContent = position >= order.length
-    ? "✓ सभी विकल्प दिख चुके हैं"
-    : "✨ More Review Options";
-}
+function copyReviews(){
 
-function createReviewCard(text, number) {
-  const card = document.createElement("article");
-  card.className = "review-card";
+  const texts = document.querySelectorAll(".review-text");
 
-  const top = document.createElement("div");
-  top.className = "review-top";
+  let output = "";
 
-  const label = document.createElement("span");
-  label.className = "review-label";
-  label.textContent = `${languageNames[currentLanguage]} • Review ${number}`;
+  texts.forEach((item,index)=>{
 
-  const hint = document.createElement("span");
-  hint.className = "edit-hint";
-  hint.textContent = "✎ Edit below";
+    output += item.innerText.trim();
 
-  top.append(label, hint);
-
-  const editor = document.createElement("textarea");
-  editor.className = "review-input";
-  editor.value = text;
-  editor.maxLength = 1500;
-  editor.setAttribute("aria-label", `Edit review ${number}`);
-
-  const actions = document.createElement("div");
-  actions.className = "review-actions";
-
-  const copyBtn = document.createElement("button");
-  copyBtn.type = "button";
-  copyBtn.className = "action-btn copy-btn";
-  copyBtn.textContent = "📋 Copy This Review";
-
-  copyBtn.addEventListener("click", async () => {
-    const textToCopy = editor.value.trim();
-
-    if (!textToCopy) {
-      showToast("पहले review लिखें।");
-      editor.focus();
-      return;
+    if(index < texts.length - 1){
+      output += "\n\n";
     }
 
-    const success = await copyText(textToCopy);
-
-    if (success) {
-      copyBtn.textContent = "✓ Copied!";
-      showToast("यह review कॉपी हो गया।");
-
-      setTimeout(() => {
-        copyBtn.textContent = "📋 Copy This Review";
-      }, 1600);
-    }
   });
 
-  const restoreBtn = document.createElement("button");
-  restoreBtn.type = "button";
-  restoreBtn.className = "action-btn reset-btn";
-  restoreBtn.textContent = "↺ Restore Original";
+  navigator.clipboard.writeText(output)
+    .then(()=>{
 
-  restoreBtn.addEventListener("click", () => {
-    editor.value = text;
-    showToast("Original example वापस आ गया।");
-  });
+      showToast();
 
-  actions.append(copyBtn, restoreBtn);
-  card.append(top, editor, actions);
+    })
+    .catch(()=>{
 
-  return card;
+      const temp = document.createElement("textarea");
+
+      temp.value = output;
+
+      document.body.appendChild(temp);
+
+      temp.select();
+
+      document.execCommand("copy");
+
+      temp.remove();
+
+      showToast();
+
+    });
+
 }
 
-async function copyText(text) {
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return true;
-    }
 
-    const temp = document.createElement("textarea");
-    temp.value = text;
-    temp.style.position = "fixed";
-    temp.style.left = "-9999px";
-    temp.setAttribute("readonly", "");
-    document.body.appendChild(temp);
-    temp.select();
+/* GOOGLE REVIEW */
 
-    const success = document.execCommand("copy");
-    temp.remove();
+function openGoogleReview(){
 
-    if (!success) throw new Error("Clipboard unavailable");
-    return true;
-  } catch (error) {
-    showToast("Copy नहीं हुआ। Text को manually copy करें।");
-    return false;
-  }
+  window.open(
+    "https://g.page/r/CbEnnOmKgF7GEAI/review",
+    "_blank"
+  );
+
 }
 
-function showMoreReviews() {
-  if (position >= order.length) {
-    showToast("सभी विकल्प दिख चुके हैं। नए क्रम के लिए नीचे बटन दबाएँ।");
-    updateCounts();
-    return;
-  }
 
-  const end = Math.min(position + batchSize, order.length);
+/* TOAST */
 
-  for (let i = position; i < end; i++) {
-    const originalIndex = order[i];
-    const text = reviewBank[currentLanguage][originalIndex];
+function showToast(){
 
-    reviewsEl.appendChild(
-      createReviewCard(text, originalIndex + 1)
-    );
-  }
+  const toast = document.getElementById("toast");
 
-  position = end;
-  batchNumber++;
-  updateCounts();
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+
+    toast.classList.remove("show");
+
+  },2200);
+
 }
 
-function selectLanguage(language) {
-  if (!reviewBank[language]) return;
 
-  currentLanguage = language;
-  order = shuffle(reviewBank[currentLanguage].map((_, i) => i));
-  position = 0;
-  batchNumber = 0;
-  reviewsEl.replaceChildren();
+/* FIRST LOAD */
 
-  document.querySelectorAll("[data-language]").forEach(button => {
-    const active = button.dataset.language === language;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
+showReviews();
 
-  showMoreReviews();
-  showToast(`${languageNames[language]} चुनी गई`);
-}
-
-document.querySelectorAll("[data-language]").forEach(button => {
-  button.addEventListener("click", () => {
-    selectLanguage(button.dataset.language);
-  });
-});
-
-moreBtn.addEventListener("click", showMoreReviews);
-
-restartBtn.addEventListener("click", () => {
-  order = shuffle(reviewBank[currentLanguage].map((_, i) => i));
-  position = 0;
-  batchNumber = 0;
-  reviewsEl.replaceChildren();
-  showMoreReviews();
-  showToast("विकल्प नए क्रम में दिखाए जा रहे हैं।");
-});
-
-/* Verify the expected 100 examples before rendering. */
-const totalReviews = Object.values(reviewBank)
-  .reduce((sum, list) => sum + list.length, 0);
-
-if (
-  totalReviews !== 100 ||
-  reviewBank.hi.length !== 34 ||
-  reviewBank.en.length !== 33 ||
-  reviewBank.hinglish.length !== 33
-) {
-  reviewsEl.textContent = "Review list count check failed. Please check the code.";
-  moreBtn.disabled = true;
-} else {
-  selectLanguage("hi");
-}
 </script>
+
 </body>
 </html>
