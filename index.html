@@ -2,7 +2,509 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Charming Beauty Care — Review</title>
+
+<style>
+:root{
+  --wine:#5a0b2b;
+  --wine2:#7a1f45;
+  --gold:#d6b36a;
+  --gold2:#f1d99b;
+  --cream:#fff8ee;
+  --white:#ffffff;
+  --text:#321d27;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,"Noto Sans",sans-serif;
+  color:var(--text);
+  background:
+    linear-gradient(rgba(53,7,25,.70),rgba(53,7,25,.82)),
+    url("salon-bg.jpg") center/cover fixed no-repeat;
+  padding:20px 12px;
+}
+
+.container{width:100%;max-width:620px;margin:auto;}
+
+.card{
+  background:rgba(255,248,238,.96);
+  border:1px solid rgba(214,179,106,.75);
+  border-radius:28px;
+  padding:28px 20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35),
+             0 0 0 1px rgba(255,255,255,.15);
+}
+
+.logo-box{text-align:center;margin-bottom:12px;}
+
+.logo{
+  width:105px;height:105px;object-fit:contain;
+  border-radius:50%;background:#fff;padding:5px;
+  border:3px solid var(--gold);
+  box-shadow:0 5px 20px rgba(0,0,0,.18);
+}
+
+.brand{text-align:center;}
+
+.brand h1{
+  margin:5px 0 3px;color:var(--wine);
+  font-size:27px;letter-spacing:.3px;
+}
+
+.tagline{
+  color:#8a5d3d;font-size:13px;font-weight:bold;
+  letter-spacing:1.5px;
+}
+
+.divider{
+  width:75px;height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:16px auto;
+}
+
+.main-title{
+  text-align:center;color:var(--wine);
+  font-size:23px;margin:5px 0 8px;
+}
+
+.subtitle{
+  text-align:center;color:#6e5961;font-size:14px;
+  line-height:1.5;margin:0 auto 20px;max-width:480px;
+}
+
+.review-card{
+  background:linear-gradient(145deg,#fffdf9,#fff5e8);
+  border:1px solid rgba(214,179,106,.60);
+  border-left:5px solid var(--gold);
+  border-radius:18px;padding:16px 15px;
+  margin:12px 0;
+  box-shadow:0 6px 18px rgba(90,11,43,.08);
+}
+
+.review-label{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:bold;color:white;
+  background:var(--wine);padding:5px 9px;
+  border-radius:20px;margin-bottom:9px;
+}
+
+.review-check{
+  width:15px;height:15px;margin:0;
+  cursor:pointer;accent-color:var(--gold);
+  flex-shrink:0;
+}
+
+.review-text{
+  font-size:15px;line-height:1.6;color:#38242c;
+  overflow-wrap:anywhere;
+  outline-offset:3px;
+}
+
+button{
+  width:100%;border:none;border-radius:14px;
+  padding:14px 16px;margin-top:9px;
+  font-size:15px;font-weight:bold;cursor:pointer;
+  transition:.2s ease;
+}
+
+button:active{transform:scale(.98);}
+
+.copy-btn{background:var(--wine);color:white;}
+.copy-btn:hover{background:var(--wine2);}
+
+.more-btn{
+  background:#f0dfbc;color:var(--wine);
+  border:1px solid var(--gold);
+}
+
+.google-btn{
+  background:#fff;color:var(--wine);
+  border:2px solid var(--gold);
+}
+
+.google-btn:hover{background:#fff8ea;}
+
+.note{
+  margin-top:18px;background:#fff4d9;
+  border:1px solid #ead29c;border-radius:15px;
+  padding:13px;font-size:12px;line-height:1.5;
+  color:#624c32;text-align:center;
+}
+
+.footer{
+  text-align:center;margin-top:20px;padding-top:16px;
+  border-top:1px solid rgba(214,179,106,.45);
+}
+
+.footer strong{color:var(--wine);}
+
+.contact{
+  margin-top:8px;font-size:12px;line-height:1.6;
+  color:#6c5960;
+}
+
+.ladies{
+  display:inline-block;margin-top:8px;color:var(--wine);
+  font-weight:bold;font-size:12px;letter-spacing:.8px;
+}
+
+.toast{
+  position:fixed;left:50%;bottom:25px;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--wine);color:white;
+  padding:11px 18px;border-radius:30px;
+  font-size:13px;font-weight:bold;
+  opacity:0;pointer-events:none;transition:.3s ease;
+  box-shadow:0 8px 25px rgba(0,0,0,.3);
+  z-index:999;width:max-content;max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:480px){
+  body{padding:12px 8px;}
+  .card{padding:23px 14px;border-radius:23px;}
+  .logo{width:90px;height:90px;}
+  .brand h1{font-size:24px;}
+  .main-title{font-size:21px;}
+  .review-text{font-size:14px;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="card">
+
+  <div class="logo-box">
+    <img src="charminglogo.png"
+         alt="Charming Beauty Care Logo"
+         class="logo">
+  </div>
+
+  <div class="brand">
+    <h1>Charming Beauty Care</h1>
+    <div class="tagline">LADIES ONLY • BHOPAL</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 class="main-title">Share Your Experience 💛</h2>
+
+  <p class="subtitle">
+    नीचे दिए गए options में से अपने अनुभव से सबसे मिलता-जुलता review चुनें।
+    चाहें तो इसे अपने अनुभव के अनुसार edit भी कर सकती हैं।
+  </p>
+
+  <div id="reviews"></div>
+
+  <button class="copy-btn" onclick="copyReviews()">
+    📋 Copy Selected Reviews
+  </button>
+
+  <button class="more-btn" onclick="showReviews()">
+    ✨ More Review Options
+  </button>
+
+  <button class="google-btn" onclick="openGoogleReview()">
+    ⭐ Write Review on Google
+  </button>
+
+  <div class="note">
+    💛 <strong>Your honest experience matters.</strong><br>
+    कृपया review को अपने वास्तविक अनुभव के अनुसार edit करके ही Google पर submit करें।
+  </div>
+
+  <div class="footer">
+    <strong>Charming Beauty Care</strong>
+    <div class="contact">
+      E-6/95, Flat No. 1, Shalimar Homes,<br>
+      Arera Colony, Bhopal<br>
+      📞 9826246652
+    </div>
+    <div class="ladies">
+      ✨ BEAUTY • CARE • CONFIDENCE ✨
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  Review copied! 💛
+</div>
+
+<script>
+const reviews = [
+
+/* HINDI: 34 */
+
+{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Staff का व्यवहार अच्छा था और service भी पसंद आई।"},
+{lang:"हिंदी",text:"यहाँ का माहौल साफ-सुथरा और आरामदायक लगा। मेरा overall experience अच्छा रहा।"},
+{lang:"हिंदी",text:"मैंने यहाँ beauty service ली और मुझे अच्छा अनुभव मिला।"},
+{lang:"हिंदी",text:"Salon में सभी ने अच्छे से बात की। Service से मैं संतुष्ट हूँ।"},
+{lang:"हिंदी",text:"यहाँ का वातावरण अच्छा है और staff भी सहयोगी है।"},
+{lang:"हिंदी",text:"मुझे यहाँ service लेते समय अच्छा और comfortable महसूस हुआ।"},
+{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव सुखद रहा।"},
+{lang:"हिंदी",text:"Staff ने मेरी बात ध्यान से सुनी और मेरी जरूरत समझी।"},
+{lang:"हिंदी",text:"Salon साफ-सुथरा है और यहाँ का व्यवहार भी अच्छा लगा।"},
+{lang:"हिंदी",text:"मेरे अनुभव के अनुसार यहाँ की service अच्छी रही।"},
+{lang:"हिंदी",text:"यहाँ आकर अच्छा लगा। Staff ने अच्छे तरीके से guide किया।"},
+{lang:"हिंदी",text:"मुझे यहाँ का professional और friendly व्यवहार पसंद आया।"},
+{lang:"हिंदी",text:"Service के दौरान मेरी जरूरतों का ध्यान रखा गया।"},
+{lang:"हिंदी",text:"Charming Beauty Care में अच्छा अनुभव रहा और service भी संतोषजनक थी।"},
+{lang:"हिंदी",text:"यहाँ का salon environment शांत और comfortable लगा।"},
+{lang:"हिंदी",text:"Staff का व्यवहार विनम्र था और मेरा अनुभव अच्छा रहा।"},
+{lang:"हिंदी",text:"मैं अपनी service से खुश हूँ। यहाँ का अनुभव अच्छा रहा।"},
+{lang:"हिंदी",text:"Salon में साफ-सफाई का ध्यान रखा गया था।"},
+{lang:"हिंदी",text:"मुझे यहाँ का व्यवहार और service करने का तरीका अच्छा लगा।"},
+{lang:"हिंदी",text:"मेरी जरूरत के अनुसार service दी गई। मेरा अनुभव अच्छा रहा।"},
+{lang:"हिंदी",text:"यहाँ आने पर अच्छा महसूस हुआ। Staff ने सहयोग किया।"},
+{lang:"हिंदी",text:"Charming Beauty Care में service लेने का अनुभव अच्छा था।"},
+{lang:"हिंदी",text:"मुझे यहाँ का माहौल और staff का व्यवहार पसंद आया।"},
+{lang:"हिंदी",text:"यहाँ बातचीत करने का तरीका अच्छा है और service भी ठीक लगी।"},
+{lang:"हिंदी",text:"Salon में मुझे सहज महसूस हुआ। Overall अनुभव अच्छा रहा।"},
+{lang:"हिंदी",text:"Staff ने service के बारे में अच्छे से समझाया।"},
+{lang:"हिंदी",text:"यहाँ की service मेरे अनुभव में अच्छी और संतोषजनक रही।"},
+{lang:"हिंदी",text:"Charming Beauty Care का वातावरण अच्छा लगा और व्यवहार भी विनम्र था।"},
+{lang:"हिंदी",text:"मुझे अपनी जरूरत के अनुसार service मिली। अनुभव अच्छा रहा।"},
+{lang:"हिंदी",text:"यहाँ staff ने ध्यान से मेरी बात सुनी।"},
+{lang:"हिंदी",text:"Salon का माहौल आरामदायक है और service का अनुभव अच्छा रहा।"},
+{lang:"हिंदी",text:"मुझे यहाँ आने का अनुभव अच्छा लगा।"},
+{lang:"हिंदी",text:"Service के समय अच्छे से ध्यान दिया गया। मैं अपने अनुभव से संतुष्ट हूँ।"},
+{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव अच्छा रहा और staff भी helpful था।"},
+
+/* ENGLISH: 33 */
+
+{lang:"English",text:"I had a good experience at Charming Beauty Care. The staff was polite and helpful."},
+{lang:"English",text:"The salon felt clean and comfortable. My overall experience was positive."},
+{lang:"English",text:"I liked the way the staff listened to my requirements."},
+{lang:"English",text:"My experience was pleasant, and the service met my expectations."},
+{lang:"English",text:"The staff was courteous and explained the service clearly."},
+{lang:"English",text:"I felt comfortable during my visit. The staff was welcoming."},
+{lang:"English",text:"A pleasant salon experience with polite and helpful staff."},
+{lang:"English",text:"I appreciated the attention given to my requirements."},
+{lang:"English",text:"The salon atmosphere was comfortable, and my experience was good."},
+{lang:"English",text:"I was satisfied with the service I received during my visit."},
+{lang:"English",text:"The staff communicated well and treated me politely."},
+{lang:"English",text:"My visit was comfortable, and the service experience was positive."},
+{lang:"English",text:"I liked the welcoming atmosphere at Charming Beauty Care."},
+{lang:"English",text:"The staff was attentive and helped me understand the service."},
+{lang:"English",text:"A nice experience overall. The salon felt welcoming and comfortable."},
+{lang:"English",text:"I appreciated the professional and friendly approach of the staff."},
+{lang:"English",text:"The service was satisfactory, and the staff was cooperative."},
+{lang:"English",text:"I had a comfortable visit and received helpful guidance."},
+{lang:"English",text:"The salon environment was pleasant, and the staff was respectful."},
+{lang:"English",text:"My experience at Charming Beauty Care was good and relaxing."},
+{lang:"English",text:"The staff paid attention to what I needed. I had a good visit."},
+{lang:"English",text:"I liked the polite communication and comfortable salon atmosphere."},
+{lang:"English",text:"The service process was explained clearly, which I appreciated."},
+{lang:"English",text:"I had a positive experience and felt comfortable asking questions."},
+{lang:"English",text:"A friendly salon environment with helpful staff."},
+{lang:"English",text:"I was pleased with the attention and guidance provided."},
+{lang:"English",text:"The team was welcoming and made my visit comfortable."},
+{lang:"English",text:"My visit was pleasant, and the staff treated me with care."},
+{lang:"English",text:"I liked the overall experience and the staff's polite behaviour."},
+{lang:"English",text:"The salon was comfortable, and my service experience was satisfactory."},
+{lang:"English",text:"I received helpful information before choosing my service."},
+{lang:"English",text:"A pleasant visit with courteous staff and a welcoming atmosphere."},
+{lang:"English",text:"I had a good experience and appreciated the staff's attention."},
+
+/* HINGLISH: 33 */
+
+{lang:"Hinglish",text:"Charming Beauty Care mein mera experience achha raha. Staff ka behaviour bhi polite tha."},
+{lang:"Hinglish",text:"Salon clean aur comfortable laga. Overall experience good raha."},
+{lang:"Hinglish",text:"Staff ne meri requirements ko achhe se samjha. I had a good experience."},
+{lang:"Hinglish",text:"Yahan ka environment nice hai aur staff bhi helpful laga."},
+{lang:"Hinglish",text:"Service ka experience achha tha aur staff ne properly guide kiya."},
+{lang:"Hinglish",text:"Mujhe yahan comfortable feel hua. Staff ka behaviour friendly tha."},
+{lang:"Hinglish",text:"Overall experience good raha. Salon ka atmosphere bhi pleasant hai."},
+{lang:"Hinglish",text:"Staff ne meri baat dhyan se suni aur achhe se explain kiya."},
+{lang:"Hinglish",text:"Charming Beauty Care mein visit achhi rahi. Service se main satisfied hoon."},
+{lang:"Hinglish",text:"Yahan ka staff polite hai aur baat karne ka tarika achha laga."},
+{lang:"Hinglish",text:"Salon ka environment comfortable hai. Mera experience positive raha."},
+{lang:"Hinglish",text:"Mujhe service ke baare mein clear information mili. That was helpful."},
+{lang:"Hinglish",text:"Yahan aakar achha laga. Staff cooperative aur friendly hai."},
+{lang:"Hinglish",text:"Service experience nice raha aur staff ne achhe se attend kiya."},
+{lang:"Hinglish",text:"Meri requirements ko importance di gayi. Overall good experience."},
+{lang:"Hinglish",text:"Salon clean laga aur staff ka behaviour bhi kaafi achha tha."},
+{lang:"Hinglish",text:"Yahan service lete time comfortable feel hua. Staff was helpful."},
+{lang:"Hinglish",text:"Charming Beauty Care ka atmosphere pleasant hai. Experience achha raha."},
+{lang:"Hinglish",text:"Staff ne service ko clearly explain kiya. I liked the experience."},
+{lang:"Hinglish",text:"Mera visit comfortable raha aur staff ne properly guide kiya."},
+{lang:"Hinglish",text:"Yahan ka behaviour friendly hai aur service experience satisfactory raha."},
+{lang:"Hinglish",text:"Overall achha experience tha. Staff polite aur cooperative tha."},
+{lang:"Hinglish",text:"Mujhe yahan ki service ka process achha laga. Staff was courteous."},
+{lang:"Hinglish",text:"Salon ka vibe comfortable hai aur staff helpful hai."},
+{lang:"Hinglish",text:"Yahan meri baat dhyan se suni gayi. Experience good raha."},
+{lang:"Hinglish",text:"Service ke baare mein achhe se bataya gaya. I felt comfortable."},
+{lang:"Hinglish",text:"Mera experience pleasant raha aur staff ka response achha tha."},
+{lang:"Hinglish",text:"Yahan ka salon environment nice hai. Staff ne achhe se cooperate kiya."},
+{lang:"Hinglish",text:"Service experience satisfactory tha aur communication bhi clear thi."},
+{lang:"Hinglish",text:"Charming Beauty Care mein staff ka behaviour friendly laga. Good experience."},
+{lang:"Hinglish",text:"Visit achhi rahi aur meri requirements ko dhyan mein rakha gaya."},
+{lang:"Hinglish",text:"Yahan comfortable feel hua aur staff ne helpful guidance di."},
+{lang:"Hinglish",text:"Overall experience nice tha. Service aur behaviour dono achhe lage."}
+
+];
+
+/* SHUFFLE REVIEWS */
+
+function shuffle(array){
+  const arr = [...array];
+
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+
+  return arr;
+}
+
+/* SHOW 3 REVIEW OPTIONS */
+
+let currentReviews = [];
+
+function showReviews(){
+  const container = document.getElementById("reviews");
+
+  const previousTexts = currentReviews.map(r => r.text);
+
+  let available = reviews.filter(
+    r => !previousTexts.includes(r.text)
+  );
+
+  if(available.length < 3){
+    available = reviews;
+  }
+
+  currentReviews = shuffle(available).slice(0,3);
+  container.innerHTML = "";
+
+  currentReviews.forEach((review,index) => {
+    const card = document.createElement("div");
+    card.className = "review-card";
+
+    const label = document.createElement("label");
+    label.className = "review-label";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.className = "review-check";
+    checkbox.setAttribute("aria-label","Select review " + (index + 1));
+
+    const labelText = document.createElement("span");
+    labelText.textContent = review.lang + " • Option " + (index + 1);
+
+    label.appendChild(checkbox);
+    label.appendChild(labelText);
+
+    const text = document.createElement("div");
+    text.className = "review-text";
+    text.contentEditable = "true";
+    text.spellcheck = true;
+    text.setAttribute("role","textbox");
+    text.setAttribute("aria-label","Edit review " + (index + 1));
+    text.textContent = review.text;
+
+    card.appendChild(label);
+    card.appendChild(text);
+    container.appendChild(card);
+  });
+}
+
+/* COPY ONLY SELECTED REVIEWS */
+
+async function copyReviews(){
+  const cards = document.querySelectorAll(".review-card");
+  const output = [];
+
+  cards.forEach(card => {
+    const checkbox = card.querySelector(".review-check");
+    const text = card.querySelector(".review-text");
+
+    if(checkbox.checked && text.innerText.trim()){
+      output.push(text.innerText.trim());
+    }
+  });
+
+  if(output.length === 0){
+    showToast("Please select a review first 💛");
+    return;
+  }
+
+  const textToCopy = output.join("\n\n");
+
+  try{
+    await navigator.clipboard.writeText(textToCopy);
+    showToast("Selected review copied! 💛");
+  }catch(error){
+    const temp = document.createElement("textarea");
+    temp.value = textToCopy;
+    temp.style.position = "fixed";
+    temp.style.left = "-9999px";
+    document.body.appendChild(temp);
+    temp.select();
+
+    const copied = document.execCommand("copy");
+    temp.remove();
+
+    if(copied){
+      showToast("Selected review copied! 💛");
+    }else{
+      showToast("Copy failed. Please try again.");
+    }
+  }
+}
+
+/* GOOGLE REVIEW */
+
+function openGoogleReview(){
+  window.open(
+    "https://g.page/r/CbEnnOmKgF7GEAI/review",
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
+
+/* TOAST */
+
+let toastTimer;
+
+function showToast(message){
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  },2200);
+}
+
+/* FIRST LOAD */
+
+showReviews();
+
+</script>
+</body>
+</html>
+```
 
 <title>Charming Beauty Care — Review</title>
 
