@@ -245,120 +245,139 @@ button:active{transform:scale(.98);}
 </div>
 
 <script>
-const reviews = [
 
-/* HINDI: 34 */
+/*
+  TOTAL: 100 REVIEWS
+  25 SHORT + 50 MEDIUM + 25 LONG
+  Languages: Hindi, English and Hinglish
+*/
 
-{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव बहुत अच्छा रहा। Staff का व्यवहार अच्छा था और service भी पसंद आई।"},
-{lang:"हिंदी",text:"यहाँ का माहौल साफ-सुथरा और आरामदायक लगा। मेरा overall experience अच्छा रहा।"},
-{lang:"हिंदी",text:"मैंने यहाँ beauty service ली और मुझे अच्छा अनुभव मिला।"},
-{lang:"हिंदी",text:"Salon में सभी ने अच्छे से बात की। Service से मैं संतुष्ट हूँ।"},
-{lang:"हिंदी",text:"यहाँ का वातावरण अच्छा है और staff भी सहयोगी है।"},
-{lang:"हिंदी",text:"मुझे यहाँ service लेते समय अच्छा और comfortable महसूस हुआ।"},
-{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव सुखद रहा।"},
-{lang:"हिंदी",text:"Staff ने मेरी बात ध्यान से सुनी और मेरी जरूरत समझी।"},
-{lang:"हिंदी",text:"Salon साफ-सुथरा है और यहाँ का व्यवहार भी अच्छा लगा।"},
-{lang:"हिंदी",text:"मेरे अनुभव के अनुसार यहाँ की service अच्छी रही।"},
-{lang:"हिंदी",text:"यहाँ आकर अच्छा लगा। Staff ने अच्छे तरीके से guide किया।"},
-{lang:"हिंदी",text:"मुझे यहाँ का professional और friendly व्यवहार पसंद आया।"},
-{lang:"हिंदी",text:"Service के दौरान मेरी जरूरतों का ध्यान रखा गया।"},
-{lang:"हिंदी",text:"Charming Beauty Care में अच्छा अनुभव रहा और service भी संतोषजनक थी।"},
-{lang:"हिंदी",text:"यहाँ का salon environment शांत और comfortable लगा।"},
-{lang:"हिंदी",text:"Staff का व्यवहार विनम्र था और मेरा अनुभव अच्छा रहा।"},
-{lang:"हिंदी",text:"मैं अपनी service से खुश हूँ। यहाँ का अनुभव अच्छा रहा।"},
-{lang:"हिंदी",text:"Salon में साफ-सफाई का ध्यान रखा गया था।"},
-{lang:"हिंदी",text:"मुझे यहाँ का व्यवहार और service करने का तरीका अच्छा लगा।"},
-{lang:"हिंदी",text:"मेरी जरूरत के अनुसार service दी गई। मेरा अनुभव अच्छा रहा।"},
-{lang:"हिंदी",text:"यहाँ आने पर अच्छा महसूस हुआ। Staff ने सहयोग किया।"},
-{lang:"हिंदी",text:"Charming Beauty Care में service लेने का अनुभव अच्छा था।"},
-{lang:"हिंदी",text:"मुझे यहाँ का माहौल और staff का व्यवहार पसंद आया।"},
-{lang:"हिंदी",text:"यहाँ बातचीत करने का तरीका अच्छा है और service भी ठीक लगी।"},
-{lang:"हिंदी",text:"Salon में मुझे सहज महसूस हुआ। Overall अनुभव अच्छा रहा।"},
-{lang:"हिंदी",text:"Staff ने service के बारे में अच्छे से समझाया।"},
-{lang:"हिंदी",text:"यहाँ की service मेरे अनुभव में अच्छी और संतोषजनक रही।"},
-{lang:"हिंदी",text:"Charming Beauty Care का वातावरण अच्छा लगा और व्यवहार भी विनम्र था।"},
-{lang:"हिंदी",text:"मुझे अपनी जरूरत के अनुसार service मिली। अनुभव अच्छा रहा।"},
-{lang:"हिंदी",text:"यहाँ staff ने ध्यान से मेरी बात सुनी।"},
-{lang:"हिंदी",text:"Salon का माहौल आरामदायक है और service का अनुभव अच्छा रहा।"},
-{lang:"हिंदी",text:"मुझे यहाँ आने का अनुभव अच्छा लगा।"},
-{lang:"हिंदी",text:"Service के समय अच्छे से ध्यान दिया गया। मैं अपने अनुभव से संतुष्ट हूँ।"},
-{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव अच्छा रहा और staff भी helpful था।"},
+const shortReviews = [
 
-/* ENGLISH: 33 */
-
-{lang:"English",text:"I had a good experience at Charming Beauty Care. The staff was polite and helpful."},
-{lang:"English",text:"The salon felt clean and comfortable. My overall experience was positive."},
-{lang:"English",text:"I liked the way the staff listened to my requirements."},
-{lang:"English",text:"My experience was pleasant, and the service met my expectations."},
-{lang:"English",text:"The staff was courteous and explained the service clearly."},
-{lang:"English",text:"I felt comfortable during my visit. The staff was welcoming."},
-{lang:"English",text:"A pleasant salon experience with polite and helpful staff."},
-{lang:"English",text:"I appreciated the attention given to my requirements."},
-{lang:"English",text:"The salon atmosphere was comfortable, and my experience was good."},
-{lang:"English",text:"I was satisfied with the service I received during my visit."},
-{lang:"English",text:"The staff communicated well and treated me politely."},
-{lang:"English",text:"My visit was comfortable, and the service experience was positive."},
-{lang:"English",text:"I liked the welcoming atmosphere at Charming Beauty Care."},
-{lang:"English",text:"The staff was attentive and helped me understand the service."},
-{lang:"English",text:"A nice experience overall. The salon felt welcoming and comfortable."},
-{lang:"English",text:"I appreciated the professional and friendly approach of the staff."},
-{lang:"English",text:"The service was satisfactory, and the staff was cooperative."},
-{lang:"English",text:"I had a comfortable visit and received helpful guidance."},
-{lang:"English",text:"The salon environment was pleasant, and the staff was respectful."},
-{lang:"English",text:"My experience at Charming Beauty Care was good and relaxing."},
-{lang:"English",text:"The staff paid attention to what I needed. I had a good visit."},
-{lang:"English",text:"I liked the polite communication and comfortable salon atmosphere."},
-{lang:"English",text:"The service process was explained clearly, which I appreciated."},
-{lang:"English",text:"I had a positive experience and felt comfortable asking questions."},
-{lang:"English",text:"A friendly salon environment with helpful staff."},
-{lang:"English",text:"I was pleased with the attention and guidance provided."},
-{lang:"English",text:"The team was welcoming and made my visit comfortable."},
-{lang:"English",text:"My visit was pleasant, and the staff treated me with care."},
-{lang:"English",text:"I liked the overall experience and the staff's polite behaviour."},
-{lang:"English",text:"The salon was comfortable, and my service experience was satisfactory."},
-{lang:"English",text:"I received helpful information before choosing my service."},
-{lang:"English",text:"A pleasant visit with courteous staff and a welcoming atmosphere."},
-{lang:"English",text:"I had a good experience and appreciated the staff's attention."},
-
-/* HINGLISH: 33 */
-
-{lang:"Hinglish",text:"Charming Beauty Care mein mera experience achha raha. Staff ka behaviour bhi polite tha."},
-{lang:"Hinglish",text:"Salon clean aur comfortable laga. Overall experience good raha."},
-{lang:"Hinglish",text:"Staff ne meri requirements ko achhe se samjha. I had a good experience."},
-{lang:"Hinglish",text:"Yahan ka environment nice hai aur staff bhi helpful laga."},
-{lang:"Hinglish",text:"Service ka experience achha tha aur staff ne properly guide kiya."},
-{lang:"Hinglish",text:"Mujhe yahan comfortable feel hua. Staff ka behaviour friendly tha."},
-{lang:"Hinglish",text:"Overall experience good raha. Salon ka atmosphere bhi pleasant hai."},
-{lang:"Hinglish",text:"Staff ne meri baat dhyan se suni aur achhe se explain kiya."},
-{lang:"Hinglish",text:"Charming Beauty Care mein visit achhi rahi. Service se main satisfied hoon."},
-{lang:"Hinglish",text:"Yahan ka staff polite hai aur baat karne ka tarika achha laga."},
-{lang:"Hinglish",text:"Salon ka environment comfortable hai. Mera experience positive raha."},
-{lang:"Hinglish",text:"Mujhe service ke baare mein clear information mili. That was helpful."},
-{lang:"Hinglish",text:"Yahan aakar achha laga. Staff cooperative aur friendly hai."},
-{lang:"Hinglish",text:"Service experience nice raha aur staff ne achhe se attend kiya."},
-{lang:"Hinglish",text:"Meri requirements ko importance di gayi. Overall good experience."},
-{lang:"Hinglish",text:"Salon clean laga aur staff ka behaviour bhi kaafi achha tha."},
-{lang:"Hinglish",text:"Yahan service lete time comfortable feel hua. Staff was helpful."},
-{lang:"Hinglish",text:"Charming Beauty Care ka atmosphere pleasant hai. Experience achha raha."},
-{lang:"Hinglish",text:"Staff ne service ko clearly explain kiya. I liked the experience."},
-{lang:"Hinglish",text:"Mera visit comfortable raha aur staff ne properly guide kiya."},
-{lang:"Hinglish",text:"Yahan ka behaviour friendly hai aur service experience satisfactory raha."},
-{lang:"Hinglish",text:"Overall achha experience tha. Staff polite aur cooperative tha."},
-{lang:"Hinglish",text:"Mujhe yahan ki service ka process achha laga. Staff was courteous."},
-{lang:"Hinglish",text:"Salon ka vibe comfortable hai aur staff helpful hai."},
-{lang:"Hinglish",text:"Yahan meri baat dhyan se suni gayi. Experience good raha."},
-{lang:"Hinglish",text:"Service ke baare mein achhe se bataya gaya. I felt comfortable."},
-{lang:"Hinglish",text:"Mera experience pleasant raha aur staff ka response achha tha."},
-{lang:"Hinglish",text:"Yahan ka salon environment nice hai. Staff ne achhe se cooperate kiya."},
-{lang:"Hinglish",text:"Service experience satisfactory tha aur communication bhi clear thi."},
-{lang:"Hinglish",text:"Charming Beauty Care mein staff ka behaviour friendly laga. Good experience."},
-{lang:"Hinglish",text:"Visit achhi rahi aur meri requirements ko dhyan mein rakha gaya."},
-{lang:"Hinglish",text:"Yahan comfortable feel hua aur staff ne helpful guidance di."},
-{lang:"Hinglish",text:"Overall experience nice tha. Service aur behaviour dono achhe lage."}
+{lang:"हिंदी",text:"यहाँ मेरा अनुभव बहुत अच्छा रहा।"},
+{lang:"English",text:"I had a pleasant experience here."},
+{lang:"Hinglish",text:"Service achhi thi, overall experience good raha."},
+{lang:"हिंदी",text:"Staff का व्यवहार बहुत अच्छा लगा।"},
+{lang:"English",text:"The staff was polite and helpful."},
+{lang:"Hinglish",text:"Salon clean tha aur staff friendly tha."},
+{lang:"हिंदी",text:"Salon साफ-सुथरा और आरामदायक है।"},
+{lang:"English",text:"A clean and comfortable salon."},
+{lang:"Hinglish",text:"Yahan aakar achha laga."},
+{lang:"हिंदी",text:"मुझे यहाँ की service पसंद आई।"},
+{lang:"English",text:"I was happy with my visit."},
+{lang:"Hinglish",text:"Staff ne achhe se guide kiya."},
+{lang:"हिंदी",text:"मेरा अनुभव संतोषजनक रहा।"},
+{lang:"English",text:"A nice and welcoming atmosphere."},
+{lang:"Hinglish",text:"Overall experience kaafi achha raha."},
+{lang:"हिंदी",text:"यहाँ का माहौल अच्छा लगा।"},
+{lang:"English",text:"The team was friendly and courteous."},
+{lang:"Hinglish",text:"Service ka experience pleasant tha."},
+{lang:"हिंदी",text:"मुझे अच्छा अनुभव मिला।"},
+{lang:"English",text:"My visit was comfortable."},
+{lang:"Hinglish",text:"Staff ka behaviour polite tha."},
+{lang:"हिंदी",text:"Service अच्छी और संतोषजनक लगी।"},
+{lang:"English",text:"I appreciated the helpful staff."},
+{lang:"Hinglish",text:"Salon ka environment nice hai."},
+{lang:"English",text:"A pleasant visit to the salon."}
 
 ];
 
-/* SHUFFLE REVIEWS */
+const mediumReviews = [
+
+{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव अच्छा रहा। Staff ने मेरी जरूरत को ध्यान से समझा और अच्छे से guide किया।"},
+{lang:"English",text:"I had a good experience at Charming Beauty Care. The staff was polite and explained the service clearly."},
+{lang:"Hinglish",text:"Charming Beauty Care mein experience achha raha. Staff friendly tha aur meri requirements ko samjha."},
+{lang:"हिंदी",text:"Salon का माहौल साफ-सुथरा और आरामदायक लगा। Staff का व्यवहार अच्छा था और service का अनुभव भी संतोषजनक रहा।"},
+{lang:"English",text:"The salon felt clean and welcoming. I appreciated the staff's polite behaviour and helpful guidance."},
+{lang:"Hinglish",text:"Salon clean aur comfortable laga. Staff ne service ke baare mein achhe se explain kiya."},
+{lang:"हिंदी",text:"मुझे यहाँ service लेते समय अच्छा महसूस हुआ। Staff ने मेरी बात सुनी और जरूरत के अनुसार जानकारी दी।"},
+{lang:"English",text:"My visit was pleasant. The team listened to my requirements and helped me understand the available services."},
+{lang:"Hinglish",text:"Yahan ka atmosphere comfortable hai. Staff ka behaviour polite tha aur overall experience good raha."},
+{lang:"हिंदी",text:"Charming Beauty Care में service का अनुभव अच्छा रहा। Salon की साफ-सफाई और staff का व्यवहार मुझे पसंद आया।"},
+{lang:"English",text:"I liked the welcoming atmosphere at Charming Beauty Care. The staff was courteous and attentive throughout my visit."},
+{lang:"Hinglish",text:"Mujhe yahan ka service experience achha laga. Staff cooperative tha aur salon ka environment pleasant tha."},
+{lang:"हिंदी",text:"यहाँ staff ने service के बारे में स्पष्ट जानकारी दी। मेरा अनुभव अच्छा रहा और मुझे comfortable महसूस हुआ।"},
+{lang:"English",text:"The staff explained the service options clearly. I felt comfortable asking questions and discussing my preferences."},
+{lang:"Hinglish",text:"Staff ne meri baat dhyan se suni aur clearly explain kiya. Overall visit comfortable rahi."},
+{lang:"हिंदी",text:"Salon का वातावरण अच्छा है और staff विनम्रता से बात करता है। मेरा अनुभव संतोषजनक रहा।"},
+{lang:"English",text:"A comfortable salon with friendly staff. I appreciated the attention given to my needs."},
+{lang:"Hinglish",text:"Yahan staff helpful laga aur meri requirements ko importance di gayi. Experience achha raha."},
+{lang:"हिंदी",text:"मुझे यहाँ का व्यवहार और service करने का तरीका पसंद आया। पूरा अनुभव आरामदायक और अच्छा रहा।"},
+{lang:"English",text:"I appreciated the professional approach and polite communication. My overall experience was positive."},
+{lang:"Hinglish",text:"Charming Beauty Care mein staff ka response achha tha. Service ke time comfortable feel hua."},
+{lang:"हिंदी",text:"यहाँ आने पर अच्छा लगा। Staff ने ध्यान से बात सुनी और service के बारे में सही जानकारी दी।"},
+{lang:"English",text:"The staff was welcoming and helpful. I received clear information and had a comfortable visit."},
+{lang:"Hinglish",text:"Salon ka atmosphere pleasant hai aur staff ne achhe se attend kiya. Mera experience satisfactory raha."},
+{lang:"हिंदी",text:"मेरा यहाँ का अनुभव अच्छा रहा। Salon साफ था और staff ने विनम्रता से मेरी मदद की।"},
+{lang:"English",text:"The salon environment was pleasant, and the team treated me respectfully. I was happy with my visit."},
+{lang:"Hinglish",text:"Meri visit achhi rahi. Staff polite tha aur service ke baare mein information bhi clear thi."},
+{lang:"हिंदी",text:"Service के दौरान मेरी जरूरतों का ध्यान रखा गया। Staff का व्यवहार अच्छा और सहयोगी लगा।"},
+{lang:"English",text:"I liked how the staff listened to my preferences and provided helpful guidance during my visit."},
+{lang:"Hinglish",text:"Mujhe yahan comfortable feel hua. Staff cooperative tha aur overall experience nice raha."},
+{lang:"हिंदी",text:"Charming Beauty Care का माहौल अच्छा लगा। Staff ने अच्छे से बात की और service के बारे में समझाया।"},
+{lang:"English",text:"I had a pleasant visit and appreciated the staff's patience in answering my questions."},
+{lang:"Hinglish",text:"Service lene ka experience achha tha. Salon clean tha aur staff ka behaviour friendly tha."},
+{lang:"हिंदी",text:"यहाँ का salon environment आरामदायक है। Staff ने मेरी जरूरत समझकर सही जानकारी दी।"},
+{lang:"English",text:"The staff was attentive and courteous. The salon felt comfortable, and my visit went well."},
+{lang:"Hinglish",text:"Yahan ka environment welcoming hai. Staff ne meri preferences ko samjha aur achhe se guide kiya."},
+{lang:"हिंदी",text:"मुझे यहाँ service का अनुभव अच्छा लगा। Staff ने पूरी बातचीत में विनम्रता और सहयोग दिखाया।"},
+{lang:"English",text:"My experience was positive. The team was helpful, and I felt comfortable discussing my service preferences."},
+{lang:"Hinglish",text:"Mera overall experience good raha. Staff ne patiently meri baat suni aur service explain ki."},
+{lang:"हिंदी",text:"Salon में साफ-सफाई का ध्यान रखा गया था। Staff का व्यवहार भी अच्छा लगा और visit आरामदायक रही।"},
+{lang:"English",text:"I liked the clean environment and welcoming service. The staff communicated politely throughout my visit."},
+{lang:"Hinglish",text:"Salon ka setup comfortable laga. Staff friendly tha aur meri queries ka achhe se answer diya."},
+{lang:"हिंदी",text:"यहाँ मुझे अपनी जरूरत के अनुसार जानकारी मिली। Staff का व्यवहार विनम्र था और अनुभव अच्छा रहा।"},
+{lang:"English",text:"The team made me feel welcome and provided clear information about the service. It was a pleasant visit."},
+{lang:"Hinglish",text:"Yahan service ke baare mein clear information mili. Staff ka behaviour achha tha aur visit comfortable rahi."},
+{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव संतोषजनक रहा। Staff सहयोगी था और माहौल भी अच्छा लगा।"},
+{lang:"English",text:"The atmosphere was relaxing, and the staff was respectful. I appreciated the attention to my requirements."},
+{lang:"Hinglish",text:"Charming Beauty Care mein visit pleasant rahi. Staff helpful tha aur overall experience achha laga."},
+{lang:"हिंदी",text:"Staff ने मेरी बात ध्यान से सुनी और service के बारे में समझाया। मुझे यहाँ अच्छा अनुभव मिला।"},
+{lang:"English",text:"I appreciated the helpful communication and comfortable setting. The visit was smooth and pleasant."},
+{lang:"Hinglish",text:"Mujhe yahan ka environment aur staff ka polite behaviour pasand aaya. Experience satisfactory raha."}
+
+];
+
+const longReviews = [
+
+{lang:"हिंदी",text:"Charming Beauty Care में मेरा अनुभव अच्छा रहा। Salon का माहौल साफ-सुथरा और आरामदायक लगा। Staff ने मेरी जरूरतों को ध्यान से सुना और service के बारे में जानकारी दी। बातचीत का तरीका विनम्र था। Overall, मेरा अनुभव संतोषजनक रहा।"},
+{lang:"English",text:"I had a pleasant experience at Charming Beauty Care. The salon felt clean and comfortable, and the staff was welcoming. They listened to my preferences and explained the service options clearly. I appreciated the polite communication and helpful approach. My overall visit was positive."},
+{lang:"Hinglish",text:"Charming Beauty Care mein mera experience achha raha. Salon ka environment clean aur comfortable laga. Staff ne meri requirements ko dhyan se suna aur service ke baare mein explain kiya. Behaviour friendly tha aur mujhe comfortable feel hua. Overall experience satisfactory raha."},
+{lang:"हिंदी",text:"यहाँ आने पर मुझे अच्छा अनुभव मिला। Salon का वातावरण आरामदायक था और staff ने विनम्रता से बात की। मेरी जरूरत के अनुसार service की जानकारी दी गई और सवालों के जवाब भी मिले। साफ-सफाई का ध्यान रखा गया था। मैं अपने अनुभव से संतुष्ट हूँ।"},
+{lang:"English",text:"My visit to Charming Beauty Care was comfortable and pleasant. The staff listened carefully to what I needed and explained the available options. I liked the welcoming atmosphere and courteous communication. The salon environment felt clean and organised. Overall, I was satisfied with my experience."},
+{lang:"Hinglish",text:"Yahan aakar achha laga. Staff polite tha aur meri baat ko patiently suna. Service ke options clearly explain kiye gaye, jis se choose karna easy hua. Salon ka atmosphere comfortable tha. Overall, mera experience good aur satisfactory raha."},
+{lang:"हिंदी",text:"Charming Beauty Care में staff का व्यवहार अच्छा लगा। Service से पहले मेरी जरूरत के बारे में पूछा गया और सही जानकारी दी गई। Salon साफ-सुथरा था और वहाँ आराम से समय बिताया। बातचीत का तरीका professional और विनम्र था। मेरा कुल अनुभव अच्छा रहा।"},
+{lang:"English",text:"I appreciated the friendly service at Charming Beauty Care. The team took time to understand my preferences and gave clear information about the service. The atmosphere was comfortable, and communication was polite throughout my visit. I felt at ease asking questions. It was a positive overall experience."},
+{lang:"Hinglish",text:"Meri visit kaafi comfortable rahi. Staff ne service ke baare mein detail mein bataya aur meri queries ka answer diya. Salon ka environment clean tha aur behaviour bhi polite laga. Mujhe achha laga ki meri preferences ko suna gaya. Overall experience pleasant raha."},
+{lang:"हिंदी",text:"मेरा Charming Beauty Care में अनुभव संतोषजनक रहा। Salon का माहौल अच्छा और आरामदायक था। Staff ने मेरी बात ध्यान से सुनी और service के बारे में स्पष्ट जानकारी दी। मुझे बातचीत का तरीका और सहयोग अच्छा लगा। कुल मिलाकर मेरी visit अच्छी रही।"},
+{lang:"English",text:"Charming Beauty Care provided a welcoming salon experience. The staff was polite, listened to my needs, and explained the service process in a clear way. I appreciated the comfortable setting and helpful communication. The visit felt organised and relaxed. Overall, I had a good experience."},
+{lang:"Hinglish",text:"Charming Beauty Care mein staff ka behaviour friendly aur professional laga. Unhone meri requirements ko samjha aur service ke baare mein clear information di. Salon ka atmosphere comfortable tha aur mujhe questions poochhne mein hesitation nahi hui. Overall, visit achhi aur relaxing rahi."},
+{lang:"हिंदी",text:"यहाँ service लेने का अनुभव अच्छा रहा। Staff ने विनम्रता से बात की और मेरी जरूरतों के अनुसार जानकारी दी। Salon का माहौल साफ और आरामदायक लगा। मुझे अच्छा लगा कि मेरी बात ध्यान से सुनी गई। Overall, मैं अपने अनुभव से खुश हूँ।"},
+{lang:"English",text:"I had a comfortable visit at Charming Beauty Care. The staff was attentive and explained the service choices without rushing me. I liked the clean surroundings and welcoming atmosphere. My questions were answered politely, which made the visit easier. Overall, the experience was pleasant and satisfactory."},
+{lang:"Hinglish",text:"Yahan ka experience achha raha. Staff ne meri baat dhyan se suni aur service ko clearly explain kiya. Salon clean aur comfortable tha. Mujhe staff ka polite communication aur helpful nature pasand aaya. Overall, main apni visit se satisfied hoon."},
+{lang:"हिंदी",text:"Charming Beauty Care में मुझे अच्छा अनुभव मिला। Staff ने मेरी जरूरत को समझकर service की जानकारी दी। Salon का वातावरण आरामदायक था और बातचीत भी अच्छे तरीके से हुई। मुझे लगा कि मेरी preferences को महत्व दिया गया। कुल मिलाकर visit संतोषजनक रही।"},
+{lang:"English",text:"The atmosphere at Charming Beauty Care was pleasant and comfortable. The staff listened to my requirements and provided useful information before the service. I appreciated their polite manner and willingness to answer questions. The salon felt welcoming throughout my visit. I was happy with the overall experience."},
+{lang:"Hinglish",text:"Mujhe Charming Beauty Care mein aakar achha laga. Staff ne patiently meri requirements suni aur available services explain ki. Salon ka environment clean aur welcoming tha. Communication clear thi aur staff cooperative laga. Overall, mera experience positive aur comfortable raha."},
+{lang:"हिंदी",text:"Salon में मेरा अनुभव अच्छा रहा। Staff का व्यवहार विनम्र था और service के बारे में सही जानकारी दी गई। वातावरण साफ-सुथरा और आरामदायक लगा। मेरी queries का जवाब भी अच्छे से मिला। Overall, Charming Beauty Care में मेरी visit सुखद रही।"},
+{lang:"English",text:"My experience at Charming Beauty Care was positive. I found the salon environment comfortable, and the staff communicated politely. They listened to what I was looking for and explained the service details clearly. I appreciated the helpful approach. Overall, it was a pleasant visit."},
+{lang:"Hinglish",text:"Charming Beauty Care mein meri visit pleasant rahi. Staff friendly tha aur unhone meri preferences ko samjha. Service ke details clearly explain kiye gaye aur questions ka answer bhi mila. Salon ka atmosphere comfortable laga. Overall experience achha aur satisfactory raha."},
+{lang:"हिंदी",text:"मुझे यहाँ का माहौल और staff का व्यवहार पसंद आया। Service के बारे में पहले जानकारी दी गई और मेरी जरूरत को ध्यान में रखा गया। Salon साफ-सुथरा था और visit के दौरान सहज महसूस हुआ। Staff ने विनम्रता से बात की। मेरा अनुभव अच्छा रहा।"},
+{lang:"English",text:"I enjoyed the welcoming atmosphere at Charming Beauty Care. The staff took the time to understand my needs and explain the available service options. Their communication was courteous, and I felt comfortable during my visit. The salon environment was pleasant. Overall, I had a satisfying experience."},
+{lang:"Hinglish",text:"Yahan staff ka behaviour achha tha aur unhone meri baat dhyan se suni. Service ke baare mein clear information mili, jo helpful thi. Salon ka environment comfortable aur clean laga. Visit ke dauran mujhe achha feel hua. Overall, experience positive raha."},
+{lang:"हिंदी",text:"Charming Beauty Care में service लेने का अनुभव अच्छा रहा। Staff ने मेरी जरूरतों के बारे में पूछा और सही जानकारी देने की कोशिश की। Salon का वातावरण आरामदायक था और व्यवहार विनम्र लगा। मुझे यहाँ सहज महसूस हुआ। कुल मिलाकर मेरा अनुभव संतोषजनक रहा।"},
+{lang:"English",text:"I had a good visit at Charming Beauty Care. The team was friendly and respectful, and they explained the service process clearly. I appreciated the clean and comfortable atmosphere. My questions were answered patiently, and I felt welcome. Overall, it was a positive salon experience."}
+
+];
+
+/* CHECK THE TOTAL COUNT */
+
+const reviews = [
+  ...shortReviews,
+  ...mediumReviews,
+  ...longReviews
+];
+
+/* SHUFFLE */
 
 function shuffle(array){
   const arr = [...array];
@@ -371,27 +390,29 @@ function shuffle(array){
   return arr;
 }
 
-/* SHOW 3 REVIEW OPTIONS */
+/* SHOW THREE DIFFERENT OPTIONS */
 
-let currentReviews = [];
+let previousTexts = [];
 
 function showReviews(){
   const container = document.getElementById("reviews");
 
-  const previousTexts = currentReviews.map(r => r.text);
-
   let available = reviews.filter(
-    r => !previousTexts.includes(r.text)
+    review => !previousTexts.includes(review.text)
   );
 
   if(available.length < 3){
+    previousTexts = [];
     available = reviews;
   }
 
-  currentReviews = shuffle(available).slice(0,3);
+  const selected = shuffle(available).slice(0,3);
+
+  previousTexts.push(...selected.map(review => review.text));
+
   container.innerHTML = "";
 
-  currentReviews.forEach((review,index) => {
+  selected.forEach((review,index) => {
     const card = document.createElement("div");
     card.className = "review-card";
 
@@ -419,11 +440,12 @@ function showReviews(){
 
     card.appendChild(label);
     card.appendChild(text);
+
     container.appendChild(card);
   });
 }
 
-/* COPY ONLY SELECTED REVIEWS */
+/* COPY ONLY CHECKED REVIEWS */
 
 async function copyReviews(){
   const cards = document.querySelectorAll(".review-card");
@@ -453,6 +475,7 @@ async function copyReviews(){
     temp.value = textToCopy;
     temp.style.position = "fixed";
     temp.style.left = "-9999px";
+
     document.body.appendChild(temp);
     temp.select();
 
@@ -477,12 +500,13 @@ function openGoogleReview(){
   );
 }
 
-/* TOAST */
+/* TOAST MESSAGE */
 
 let toastTimer;
 
 function showToast(message){
   const toast = document.getElementById("toast");
+
   toast.textContent = message;
   toast.classList.add("show");
 
